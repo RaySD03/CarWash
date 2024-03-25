@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CarWash.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CarWash"
+    xmlns:login="clr-namespace:CarWash.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.BackgroundColor="Black"
+    FlyoutBackground="#222"
+    Shell.NavBarIsVisible="True"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White"
+    Title="CarWash" 
+    Shell.TabBarBackgroundColor="#222"
+    Shell.TabBarTitleColor="White"
+    Shell.TabBarForegroundColor="AliceBlue"
+    Shell.TabBarUnselectedColor="DarkGrey"
+    xmlns:iOS="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    iOS:Page.UseSafeArea="True"
+    x:Name="MyAppShell">
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="auto,*" RowDefinitions="50" Padding="17,10,0,10" ColumnSpacing="15">
+                <Image MaximumWidthRequest="24" Source="{Binding Icon}" Grid.Column="0"/>
+                <Label FontSize="18" Text="{Binding Title}" Grid.Column="1" VerticalOptions="Center" TextColor="AntiqueWhite"></Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <TabBar>
+        <Tab Title="Login" Icon="user_login_icon.png">
+            <ShellContent Route="Login" x:Name="LoginPage"  ContentTemplate="{DataTemplate login:LoginPage}"/>
+        </Tab>
+        <Tab Title="Sign up" Icon="user_signup_icon.png">
+            <ShellContent Route="SignUpPage" x:Name="SignUpPage"  ContentTemplate="{DataTemplate login:SignUpPage}"/>
+        </Tab>
+    </TabBar>
+
+
+
+    <FlyoutItem Icon="home_icon.png" Title="Home">
+        <ShellContent x:Name="HomeScreen"    
+          Title="Home"
+          Icon="home_icon.png"
+          ContentTemplate="{DataTemplate login:HomeScreen}"
+          Route="HomeScreen" />
+    </FlyoutItem>
+
+    <FlyoutItem Icon="appointments_icon.png"  Title="My Appointments">
+        <ShellContent x:Name="MyAppointments"    
+            ContentTemplate="{DataTemplate login:MyAppointments}"
+            Route="MyAppointments" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="My Profile"  Icon="profile_icon.png">
+        <ShellContent x:Name="UserProfile"      
+          ContentTemplate="{DataTemplate login:UserProfile}"
+          Route="UserProfile" />
+    </FlyoutItem>
+
+
+</Shell>

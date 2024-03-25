@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.SignUpPage"
+             Title="SignUpPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="auto,*,auto">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="#171717"
+            Offset="0.1" />
+                <GradientStop Color="#111"
+            Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <VerticalStackLayout Grid.Row="0">
+            <Label Margin="10,45,10,40" Text="Mobile Car Wash" TextColor="White" FontSize="28" HorizontalOptions="Center"  VerticalOptions="Start"></Label>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="Center" Grid.Row="1">
+
+            <VerticalStackLayout>
+
+                <Frame BorderColor="Transparent" Background="#252525" Margin="15,0,15,0" Padding="0,0,0,0">
+                    <VerticalStackLayout MaximumWidthRequest="350" BackgroundColor="Transparent">
+                        <Label HorizontalOptions="Start" 
+                        Text="Name:"
+                        FontSize="17"
+                        TextColor="LightGray"
+                        Margin="15,10,0,0">
+                        </Label>
+                        <Entry Placeholder="Your Name"
+                        FontSize="21"
+                        MaximumWidthRequest="350"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        Margin="10" 
+                        Text="{Binding MyLoginRequestModel.Email}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                <VerticalStackLayout MaximumWidthRequest="350">
+                    <Label HorizontalOptions="Start" 
+                           Text="Email:"
+                           FontSize="17"
+                           TextColor="LightGray"
+                           Margin="15,10,0,0">
+                    </Label>
+                        <Entry Placeholder="example@yahoo.com"
+                           FontSize="21"
+                           MaximumWidthRequest="350"
+                           BackgroundColor="Transparent"
+                           TextColor="White"
+                           Margin="10" 
+                           Text="{Binding MyLoginRequestModel.Email}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                    <VerticalStackLayout MaximumWidthRequest="350">
+                    <Label HorizontalOptions="Start" 
+                        Text="Password:"                      
+                        FontSize="17"
+                        TextColor="LightGray"
+                        Margin="15,10,0,0">
+                    </Label>
+                        <Entry Placeholder="******"
+                        FontSize="22"  
+                        IsPassword="True"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        Margin="10"
+                        Text="{Binding MyLoginRequestModel.Password}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                <VerticalStackLayout MaximumWidthRequest="350">
+                    <Label HorizontalOptions="Start" 
+                        Text="Confirm Password:"                      
+                        FontSize="18"
+                        TextColor="LightGray"
+                        Margin="15,10,0,0">
+                    </Label>
+                        <Entry Placeholder="******"
+                        FontSize="22"  
+                        IsPassword="True"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        Margin="10"
+                        Text="{Binding MyLoginRequestModel.Password}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout  Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="0,0,0,25">
+            <Button Text="Continue"
+                 FontSize="21"
+                 VerticalOptions="Center"
+                 MaximumWidthRequest="350"
+                 TextColor="AliceBlue"
+                 Margin="0" 
+                 Command="{Binding LoginProcedure}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="#E08E2F"
+                            Offset="0.1" />
+                        <GradientStop Color="#5A3F1D"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+
+</ContentPage>

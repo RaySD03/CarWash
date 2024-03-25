@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.UserProfile"
+             Title="My Profile"
+             Background="#111">
+
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent" 
+           RowDefinitions="0.8*,*,*" 
+           ColumnDefinitions="*,*"
+           Padding="0">
+
+        <Grid Grid.Row="0"
+               Grid.ColumnSpan="2"
+               Margin="0,0,0,0"
+               VerticalOptions="FillAndExpand">
+
+            <Border Stroke="#151B24"
+                     StrokeShape="RoundRectangle 0,0,0,0"
+                     StrokeThickness="1">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#555"
+                          Offset="0" />
+                        <GradientStop Color="#111"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid ColumnDefinitions="*"
+                        RowDefinitions="*,*" 
+                        RowSpacing="3">
+
+                    <Button 
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="18"
+                           ImageSource="email_icon.png"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"
+                           ContentLayout="Left, 12"
+                           VerticalOptions="Center"
+                           Text="example@yahoo.com"
+                           BackgroundColor="Transparent"
+                           TextColor="White"/>
+
+                    <Button 
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          FontSize="18"
+                          ImageSource="user_profile_default.png"
+                          Margin="10,0,0,40"
+                          HorizontalOptions="Start"
+                          ContentLayout="Left, 12"
+                          VerticalOptions="Center"
+                          Text="Address"
+                          BackgroundColor="Transparent"
+                          TextColor="White"/>
+
+                    <Button 
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      FontSize="18"
+  
+                      Margin="10,0,0,40"
+                      HorizontalOptions="End"
+                      ContentLayout="Left, 12"
+                      VerticalOptions="Center"
+                      Text="Edit"
+                      BackgroundColor="Transparent"
+                      TextColor="Orange"/>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Grid.ColumnSpan="2"
+              Margin="0,0,0,0"
+              VerticalOptions="FillAndExpand">
+            <Grid ColumnDefinitions="*"
+                  RowDefinitions="*" 
+                  RowSpacing="3">
+                <Button x:Name="logout_Btn"
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      FontSize="21"
+                      Margin="10,10,10,15"
+                      MaximumWidthRequest="370"
+
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="End"
+                      Text="Log Out"
+                      ContentLayout="Left, 5"
+                      ImageSource="logout_icon.png"
+                      TextColor="#eee"
+                      Command="{Binding Logout}">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#C9181F"
+                                    Offset="0.1" />
+                            <GradientStop Color="#941B1B"
+                                    Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>

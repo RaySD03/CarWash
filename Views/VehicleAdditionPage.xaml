@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.VehicleAdditionPage"
+             Title="Add a car"
+             Background="#111">
+
+    <Grid RowDefinitions="*,Auto">
+        <VerticalStackLayout VerticalOptions="Center">
+
+
+            <Image Margin="0,0,0,15" WidthRequest="120" Source="car_list_icon.png"></Image>
+
+            <Border Stroke="#151B24"
+                StrokeShape="RoundRectangle 10,10,10,10"
+                StrokeThickness="1"
+                Padding="20" 
+                MaximumWidthRequest="400"
+                Margin="10"
+                Background="#222">
+                <VerticalStackLayout>
+                    <Label Text="Details:"
+                           TextColor="AliceBlue"
+                           FontSize="17"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,0,0,10"
+                           FontAttributes="Bold">
+                    </Label>
+
+                    <Entry x:Name="makeEntry"
+                    Placeholder="Make:"
+                    Margin="0,10,0,10"
+                    CharacterSpacing="0.5"
+                    TextColor="#eee"
+                    ClearButtonVisibility="WhileEditing"
+                    Background="#333"
+                    FontSize="19"/>
+
+                    <Entry x:Name="modelEntry"
+                    Placeholder="Model:"
+                    Margin="0,10,0,10"
+                    CharacterSpacing="0.5"
+                    TextColor="#eee"
+                    ClearButtonVisibility="WhileEditing"
+                    Background="#333"
+                    FontSize="19"/>
+
+                    <Entry x:Name="yearEntry"
+                     Placeholder="Year:"
+                     CharacterSpacing="0.5"
+                     TextColor="#eee"
+                     Margin="0,10,0,10"                  
+                     ClearButtonVisibility="WhileEditing"
+                     Background="#333"
+                     FontSize="19"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="0" Grid.Row="1" VerticalOptions="End" Margin="5">
+            <Button x:Name="addBtn"
+               Text="Done" 
+               FontSize="20"
+               Margin="10"
+               Background="#AC99EA"
+               TextColor="#222"
+               MaximumWidthRequest="400"
+               IsEnabled="True"
+               Clicked="addCar">
+            </Button>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>

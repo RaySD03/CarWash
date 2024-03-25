@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.ServicesSelection"
+             Background="#222"
+             Title="Specify Services">
+
+    <Grid RowDefinitions="auto,*,Auto">
+
+        <Label HorizontalOptions="Center" FontSize="20" Text="Step 3 / 5" TextColor="AliceBlue" Margin="20"></Label>
+
+        <Border Background="#222"
+                 Stroke="#151B24"
+                 VerticalOptions="Center"
+                 StrokeShape="RoundRectangle 0,0,0,0"
+                 StrokeThickness="1" Grid.Row="1">
+
+            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList.Cars}" VerticalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
+                            <Grid ColumnDefinitions="2*,*">
+                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                </VerticalStackLayout>
+
+                                <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged"
+                                            SelectedIndex="{Binding Service}"
+                                            BackgroundColor="#222"
+                                            TextColor="#eee"
+                                            TitleColor="AliceBlue"
+                                            Title="Select an option">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Exterior Wash</x:String>
+                                                <x:String>Interior Detail</x:String>
+                                                <x:String>Wash + Detail</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+        <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
+            <Button Text="Continue"
+              FontSize="20"  
+              Background="#AC99EA"
+              MaximumWidthRequest="400"
+              TextColor="#222"
+              Clicked="gotoAgentSelection"
+              Margin="10">
+            </Button>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

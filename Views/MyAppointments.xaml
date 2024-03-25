@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.MyAppointments"
+             Title="MyAppointments"
+             Background="#111">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label 
+            Text="You don't have any appointments yet."
+            TextColor="Wheat"
+            VerticalOptions="End" 
+            FontSize="16"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

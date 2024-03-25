@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.Schedule"
+             Title="Date and Time"
+             Background="#222"
+             NavigationPage.HasBackButton="True"
+             >
+
+    <Grid RowDefinitions="*,Auto">
+        <VerticalStackLayout VerticalOptions="Center">
+
+            <VerticalStackLayout VerticalOptions="Start" HorizontalOptions="Center" Margin="0,-40,0,40">
+                <Label FontSize="20" Text="Step 1 / 5" TextColor="AliceBlue"></Label>
+            </VerticalStackLayout>
+
+            <Border Stroke="#151B24"
+                StrokeShape="RoundRectangle 0,0,0,10"
+                StrokeThickness="1"
+                Padding="10"
+                Background="#333">
+                <HorizontalStackLayout Padding="15" HorizontalOptions="Center">
+                    <Image Source="calendar_icon.png"></Image>
+                    <DatePicker TextColor="AliceBlue"
+                            FontSize="28"             
+                            HorizontalOptions="Center"
+                            Margin="20,0,0,0"
+                            Background="#333">
+                    </DatePicker>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border Stroke="#151B24"
+                 StrokeShape="RoundRectangle 0,0,0,10"
+                 StrokeThickness="1"
+                 Margin="0,10,0,0"
+                 Padding="10"
+                 Background="#333">
+                <HorizontalStackLayout Padding="15" HorizontalOptions="Center">
+                    <Image Source="clock_icon.png"></Image>
+                    <TimePicker TextColor="AliceBlue"
+                          FontSize="28"
+                          HorizontalOptions="Center"
+                          Margin="20,0,0,0"
+                          Background="#333">
+                    </TimePicker>
+                </HorizontalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Column="0" Grid.Row="1" VerticalOptions="End" Margin="5">
+            <Button Text="Continue"
+                 FontSize="20" 
+                 MaximumWidthRequest="400"
+                 Background="#AC99EA"
+                 TextColor="#222"
+                 Clicked="goToSelectVehicles"
+                 Margin="10">
+            </Button>
+
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>
