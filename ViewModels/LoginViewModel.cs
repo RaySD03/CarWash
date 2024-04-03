@@ -6,11 +6,18 @@ using System.Windows.Input;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Firebase.Auth;
+using CarWash.Views;
 
 namespace CarWash.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
+
+        public string webApiKey = "AIzaSyAaQodvzegxflBMymuDyGo4fZ67SXiDZ_4";
+
         private LoginRequestModel myLoginRequestModel = new LoginRequestModel();
         public LoginRequestModel MyLoginRequestModel 
         { 
@@ -20,7 +27,6 @@ namespace CarWash.ViewModels
                 OnPropertyChanged(nameof(MyLoginRequestModel));
             }
         }
-
         public ICommand LoginProcedure {  get;}
         public LoginViewModel() 
         {
@@ -31,9 +37,27 @@ namespace CarWash.ViewModels
         {
             // Firebase Authentication here
             var credentials = myLoginRequestModel;
+            Preferences.Set("FreshFirebaseToken", null);
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
+            try
+            {
+                if (credentials != null)
+                {
+                    var auth = await authProvider.SignInWithEmailAndPasswordAsync(credentials.Email, credentials.Password);
+                    var content = await auth.GetFreshAuthAsync();
+                    var serializedContent = JsonConvert.SerializeObject(content);
+                    Preferences.Set("FreshFirebaseToken", serializedContent);
+                    Preferences.Set("UserEmail", credentials.Email);
 
-            Preferences.Set("IsLoggedIn", true);
-            await Shell.Current.GoToAsync(state: "//UserProfile");
+                    Preferences.Set("IsLoggedIn", true);
+                    await Shell.Current.GoToAsync("//UserProfile");
+                }             
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                throw;
+            }         
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

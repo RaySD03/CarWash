@@ -14,8 +14,6 @@ public partial class HomeScreen : ContentPage
         CarList.Cars.Add(new CarList { Make = "Hyundai", Model = "Elantra", Year = "2022", Icon = "car_list_icon.png" });
         CarList.Cars.Add(new CarList { Make = "Volkswagen", Model = "Golf", Year = "2019", Icon = "car_list_icon.png" });
         getCarList();
-
-        GC.Collect();
 	}
     private void getCarList()
 	{

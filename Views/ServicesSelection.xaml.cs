@@ -9,15 +9,16 @@ public partial class ServicesSelection : ContentPage
 		InitializeComponent();
         CarListCollectionView.ItemsSource = CarList_Services.Cars;
     }
-	public async void gotoAgentSelection(object sender, EventArgs e)
+    public async void gotoAgentSelection(object sender, EventArgs e)
 	{
 		await Navigation.PushAsync(new AgentSelection());
 	}
 
     private void picker_SelectedIndexChanged(object sender, EventArgs e)
     {
-        var option = sender as Picker;
+        var option = sender as Picker;    
         var car = option.BindingContext as CarList_Services;
         
+        DisplayAlert("Info", "Service:" + car.Service + option.SelectedItem.ToString(), "OK");
     }
 }

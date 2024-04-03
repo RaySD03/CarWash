@@ -31,7 +31,7 @@
                         RowDefinitions="*,*" 
                         RowSpacing="3">
 
-                    <Button 
+                    <Button x:Name="Email"
                            Grid.Row="0"
                            Grid.Column="1"
                            FontSize="18"

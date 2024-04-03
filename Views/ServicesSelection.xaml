@@ -15,7 +15,7 @@
                  StrokeShape="RoundRectangle 0,0,0,0"
                  StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList.Cars}" VerticalOptions="Center">
+            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList_Services.Cars}" VerticalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
@@ -28,12 +28,13 @@
 
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
                                     <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged"
-                                            SelectedIndex="{Binding Service}"
                                             BackgroundColor="#222"
-                                            TextColor="#eee"
+                                            TextColor="#eee" 
+                                            BindingContext="{x:Reference CarList_Services.Cars}"
+                                            SelectedIndex="{Binding Service}"
                                             TitleColor="AliceBlue"
                                             Title="Select an option">
-                                        <Picker.ItemsSource>
+                                        <Picker.ItemsSource BindingContext="{x:Reference CarList_Services.Cars}">
                                             <x:Array Type="{x:Type x:String}">
                                                 <x:String>Exterior Wash</x:String>
                                                 <x:String>Interior Detail</x:String>
