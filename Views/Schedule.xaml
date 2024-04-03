@@ -57,10 +57,16 @@
                  TextColor="#222"
                  Clicked="goToSelectVehicles"
                  Margin="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+                            Offset="0.1" />
+                        <GradientStop Color="#777"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
-
         </VerticalStackLayout>
-
     </Grid>
 
 </ContentPage>

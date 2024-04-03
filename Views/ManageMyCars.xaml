@@ -45,10 +45,17 @@
                 Text="+ Add" 
                 FontSize="18"
                 Margin="10"
-                Background="#AC99EA"
                 TextColor="#222"
                 MaximumWidthRequest="400"
                 Clicked="goToVehicleAddition">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+              Offset="0.1" />
+                        <GradientStop Color="#777"
+              Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
             
         </VerticalStackLayout>

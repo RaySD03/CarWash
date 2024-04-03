@@ -121,14 +121,22 @@
                             FontSize="20"
                             Margin="25,0,25,16" 
                             Grid.Column="0" 
-                            Background="#AC99EA"
+
                             TextColor="#222"
                             VerticalOptions="End"
                             Grid.Row="1"            
                             Padding="5,11,5,11"
-                            MaximumWidthRequest="400"
+                            MaximumWidthRequest="380"
                             ContentLayout="Left,10"
                             Clicked="goToSchedule">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#eee"
+                                    Offset="0.1" />
+                                <GradientStop Color="#777"
+                                    Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
                     </Button>
 
                 </Grid>
