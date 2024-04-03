@@ -15,23 +15,23 @@ namespace CarWash.Models
         public string Year { get; set; }
         public string Service { get; set; }
 
-        public static ObservableCollection<CarList> Cars = new ObservableCollection<CarList>();
+        public static ObservableCollection<CarList_Services> Cars = new ObservableCollection<CarList_Services>();
 
-        public Command<CarList> RemoveCommand
+        public Command<CarList_Services> RemoveCommand
         {
             get
             {
-                return new Command<CarList>((Car) => {
+                return new Command<CarList_Services>((Car) => {
                     Cars.Remove(Car);
                 });
             }
         }
 
-        public Command<CarList> AddCommand
+        public Command<CarList_Services> AddCommand
         {
             get
             {
-                return new Command<CarList>((Car) => {
+                return new Command<CarList_Services>((Car) => {
                     Cars.Add(Car);
                 });
             }

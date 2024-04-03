@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.ManageMyCars"
              Title="Manage Cars"
-             Background="#222">
+             Background="#111">
 
     <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent" 
           RowDefinitions="0.25*,1.5*,auto" 
@@ -18,10 +18,10 @@
       StrokeShape="RoundRectangle 0,0,0,0"
       StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList.Cars}">
+            <CollectionView x:Name="CarListCollectionView" Background="#111" ItemsSource="{Binding CarList.Cars}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
+                        <Frame BorderColor="Transparent" Background="#222" Margin="10,0,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
                                 <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
@@ -30,7 +30,7 @@
                                 </VerticalStackLayout>
 
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                    <Button Text="Remove" FontSize="14" Background="#CC310E" Clicked="Remove_Selected_Car"></Button>
+                                    <Button Text="Remove" FontSize="14" FontAttributes="None" TextColor="Black" Background="#CC310E" Clicked="Remove_Selected_Car"></Button>
                                 </HorizontalStackLayout>
                             </Grid>
                         </Frame>

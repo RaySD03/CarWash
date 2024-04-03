@@ -13,11 +13,13 @@ public partial class SelectVehicles : ContentPage
     public void CheckBox_CheckedChanged(object sender, EventArgs e)
     {
         var checkbox = sender as CheckBox;
-        var car = checkbox.BindingContext as CarList;
+        var selected = checkbox.BindingContext as CarList;
+        var car = new CarList_Services { Make = selected.Make, Model = selected.Model, Year = selected.Year, Service = "" };
 
         // Add or remove checked cars from the collectionview to services list
         if (checkbox.IsChecked == true)
         {
+
             CarList_Services.Cars.Add(car);
         }
         else

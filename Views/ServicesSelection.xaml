@@ -15,7 +15,7 @@
                  StrokeShape="RoundRectangle 0,0,0,0"
                  StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList_Services.Cars}" VerticalOptions="Center">
+            <CollectionView x:Name="CarListCollectionView1" ItemsSource="{Binding CarList_Services.Cars}" VerticalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
@@ -26,23 +26,23 @@
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
                                 </VerticalStackLayout>
 
-                                <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                    <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged"
-                                            BackgroundColor="#222"
-                                            TextColor="#eee" 
-                                            BindingContext="{x:Reference CarList_Services.Cars}"
-                                            SelectedIndex="{Binding Service}"
+                                <VerticalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <Picker x:Name="Picker"
+                                            Background="#222"
+                                            TextColor="#eee"
+                                            SelectedIndex="1"
                                             TitleColor="AliceBlue"
-                                            Title="Select an option">
-                                        <Picker.ItemsSource BindingContext="{x:Reference CarList_Services.Cars}">
+                                            SelectedIndexChanged="Service_Specified"
+                                            Title="Select a service:">
+                                        <Picker.ItemsSource>
                                             <x:Array Type="{x:Type x:String}">
-                                                <x:String>Exterior Wash</x:String>
                                                 <x:String>Interior Detail</x:String>
+                                                <x:String>Exterior Wash</x:String>
                                                 <x:String>Wash + Detail</x:String>
                                             </x:Array>
                                         </Picker.ItemsSource>
                                     </Picker>
-                                </HorizontalStackLayout>
+                                </VerticalStackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>

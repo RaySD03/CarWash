@@ -17,7 +17,7 @@
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList.Cars}">
+            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList_Services.Cars}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
@@ -26,6 +26,7 @@
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Service}"></Label>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>

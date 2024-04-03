@@ -121,7 +121,6 @@
                             FontSize="20"
                             Margin="25,0,25,16" 
                             Grid.Column="0" 
-
                             TextColor="#222"
                             VerticalOptions="End"
                             Grid.Row="1"            
