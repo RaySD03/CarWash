@@ -1,4 +1,5 @@
 using CarWash.Models;
+using Google.Cloud.Firestore;
 
 namespace CarWash.Views;
 
@@ -40,6 +41,13 @@ public partial class ManageMyCars : ContentPage
         var vm = BindingContext as Garage;
         vm.RemoveCommand.Execute(car);
         Label.Text = Garage.Cars.Count + " / 5 cars";
+
+        var email = Preferences.Get("UserEmail", "");
+
+        FirestoreDb db = FirestoreDb.Create("carwash-da88f");
+        string carid = car.Identifier.ToString();
+        DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(car.Identifier.ToString());
+        docRef.DeleteAsync();
 
         int i = 0;
         foreach (var entry in Garage.Cars)
