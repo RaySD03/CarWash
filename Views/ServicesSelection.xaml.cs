@@ -11,7 +11,7 @@ public partial class ServicesSelection : ContentPage
     public ServicesSelection()
 	{
 		InitializeComponent();
-        CarListCollectionView1.ItemsSource = CarList_Services.Cars;
+        CarListCollectionView1.ItemsSource = CarList_Selected.Cars;
     }
     public async void gotoAgentSelection(object sender, EventArgs e)
 	{
@@ -21,9 +21,9 @@ public partial class ServicesSelection : ContentPage
     private void Service_Specified(object sender, EventArgs e)
     {
         var option = sender as Picker;    
-        var selected = option.BindingContext as CarList_Services;
-        var car = new CarList_Services { Make = selected.Make, Model = selected.Model, Year = selected.Year, Service = option.SelectedItem.ToString() };
+        var selected = option.BindingContext as CarList_Selected;
+        selected.Service = option.SelectedItem.ToString();
 
-        DisplayAlert("Info", "Service:" + car.Model + option.SelectedItem.ToString(), "OK");
+        DisplayAlert("Info", "Service:" + selected.Model + option.SelectedItem.ToString(), "OK");
     }
 }

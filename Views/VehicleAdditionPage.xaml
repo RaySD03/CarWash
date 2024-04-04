@@ -53,6 +53,34 @@
                      ClearButtonVisibility="WhileEditing"
                      Background="#333"
                      FontSize="19"/>
+
+                    <VerticalStackLayout VerticalOptions="Center"  HorizontalOptions="Start">
+                        <Picker x:Name="ColorPicker"
+                            Background="#222"
+                            TextColor="#eee"
+                            SelectedIndex="1"
+                            TitleColor="AliceBlue"
+                            Title="Color:">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Black</x:String>
+                                    <x:String>Silver</x:String>
+                                    <x:String>White</x:String>
+                                    <x:String>Yellow</x:String>
+                                    <x:String>Orange</x:String>
+                                    <x:String>Red</x:String>
+                                    <x:String>Green</x:String>
+                                    <x:String>Blue</x:String>
+                                    <x:String>Pink</x:String>
+                                    <x:String>Gray</x:String>
+                                    <x:String>Purple</x:String>
+                                    <x:String>Brown</x:String>
+                                    <x:String>BurlyWood</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </VerticalStackLayout>
+
                 </VerticalStackLayout>
             </Border>
 
@@ -63,11 +91,18 @@
                Text="Done" 
                FontSize="20"
                Margin="10"
-               Background="#AC99EA"
                TextColor="#222"
                MaximumWidthRequest="400"
                IsEnabled="True"
                Clicked="addCar">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+                            Offset="0.1" />
+                        <GradientStop Color="#777"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
 
         </VerticalStackLayout>

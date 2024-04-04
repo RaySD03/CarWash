@@ -3,25 +3,24 @@ using System.Collections.ObjectModel;
 
 
 namespace CarWash.Views;
-
 public partial class HomeScreen : ContentPage
 {
     public HomeScreen()
 	{
 		InitializeComponent();
-        CarList.Cars.Add(new CarList { Make = "BMW", Model = "Turbo", Year = "2002", Icon = "car_list_icon.png" });
-        CarList.Cars.Add(new CarList { Make = "Honda", Model = "Accord", Year = "2018", Icon = "car_list_icon.png" });
-        CarList.Cars.Add(new CarList { Make = "Hyundai", Model = "Elantra", Year = "2022", Icon = "car_list_icon.png" });
-        CarList.Cars.Add(new CarList { Make = "Volkswagen", Model = "Golf", Year = "2019", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
         getCarList();
 	}
     private void getCarList()
 	{
-        CarListCollectionView.ItemsSource = CarList.Cars;          
+        CarListCollectionView.ItemsSource = Garage.Cars;          
     }
 	public async void goToSchedule(object sender, EventArgs e)
 	{
-        if (CarList.Cars.Count > 0)
+        if (Garage.Cars.Count > 0)
         {
             await Navigation.PushAsync(new Schedule());
         }

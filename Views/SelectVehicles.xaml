@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.SelectVehicles"
              xmlns:iOS="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local2="clr-namespace:CarWash.Models"
              iOS:Page.UseSafeArea="True"
              Title="Select Vehicles"
              Background="#222">
 
+    <ContentPage.Resources>
+        <local2:StringToColor x:Key="StringToColor" />
+    </ContentPage.Resources>
+    
     <Grid RowDefinitions="auto,*,Auto" 
           ColumnDefinitions="*">
    
@@ -23,13 +28,20 @@
                         <DataTemplate>
                             <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
                                 <Grid ColumnDefinitions="2*,*">
+                                <HorizontalStackLayout>
+                                    <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                         WidthRequest="12"
+                                         HeightRequest="12">
+                                    </Rectangle>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Margin="30,0,0,0">
                                     <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
                                     </VerticalStackLayout>
-
-                                    <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1">
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1">
                                         <CheckBox CheckedChanged="CheckBox_CheckedChanged" Color="AliceBlue"></CheckBox>
                                     </HorizontalStackLayout>
                                 </Grid>
@@ -42,11 +54,18 @@
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Continue"
                  FontSize="20"  
-                 Background="#AC99EA"
                  Clicked="gotoSpecifyServices"
                  MaximumWidthRequest="400"
                  TextColor="#222"
                  Margin="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+                            Offset="0.1" />
+                        <GradientStop Color="#777"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
         </VerticalStackLayout>
 

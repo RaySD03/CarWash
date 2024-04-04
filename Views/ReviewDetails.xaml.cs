@@ -7,7 +7,7 @@ public partial class ReviewDetails : ContentPage
 	public ReviewDetails()
 	{
 		InitializeComponent();
-        CarListCollectionView.ItemsSource = CarList_Services.Cars;
+        CarListCollectionView.ItemsSource = CarList_Selected.Cars;
     }
     public async void confirm(object sender, EventArgs e)
     {

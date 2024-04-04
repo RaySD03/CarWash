@@ -2,8 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.ServicesSelection"
+             xmlns:local2="clr-namespace:CarWash.Models"
              Background="#222"
              Title="Specify Services">
+
+    <ContentPage.Resources>
+        <local2:StringToColor x:Key="StringToColor" />
+    </ContentPage.Resources>
 
     <Grid RowDefinitions="auto,*,Auto">
 
@@ -20,12 +25,21 @@
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
-                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
-                                </VerticalStackLayout>
-
+                                <HorizontalStackLayout>
+                                    <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                        WidthRequest="12"
+                                        HeightRequest="12">
+                                    </Rectangle>
+                                </HorizontalStackLayout>
+                                
+                                <HorizontalStackLayout Margin="30,0,0,0">
+                                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                                
                                 <VerticalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
                                     <Picker x:Name="Picker"
                                             Background="#222"
@@ -53,11 +67,18 @@
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Continue"
               FontSize="20"  
-              Background="#AC99EA"
               MaximumWidthRequest="400"
               TextColor="#222"
               Clicked="gotoAgentSelection"
               Margin="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+                            Offset="0.1" />
+                        <GradientStop Color="#777"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
         </VerticalStackLayout>
 

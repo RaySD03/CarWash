@@ -8,21 +8,31 @@ using System.Threading.Tasks;
 
 namespace CarWash.Models
 {
-    class CarList
+    class Garage
     {
         public string Make { get; set; }
         public string Model { get; set; }
         public string Year { get; set; }
+        public string Color { get; set; }
         public string Icon { get; set; }
 
-        public static ObservableCollection<CarList> Cars = new ObservableCollection<CarList>();
+        public static ObservableCollection<Garage> Cars = new ObservableCollection<Garage>();
 
-        public Command<CarList> RemoveCommand
+        public Command<Garage> RemoveCommand
         {
             get
             {
-                return new Command<CarList>((Car) => {
+                return new Command<Garage>((Car) => {
                     Cars.Remove(Car);
+                });
+            }
+        }
+        public Command<Garage> AddCommand
+        {
+            get
+            {
+                return new Command<Garage>((Car) => {
+                    Cars.Add(Car);
                 });
             }
         }

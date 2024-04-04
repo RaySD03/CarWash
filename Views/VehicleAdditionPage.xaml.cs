@@ -10,9 +10,9 @@ public partial class VehicleAdditionPage : ContentPage
 	}
     public void addCar(object sender, EventArgs e)
     {
-        if (CarList.Cars.Count < 5) 
+        if (Garage.Cars.Count < 5) 
         {
-            CarList.Cars.Add(new CarList { Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Icon = "car_list_icon.png" });
+            Garage.Cars.Add(new Garage { Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString(), Icon = "car_list_icon.png" });
             Console.WriteLine("Car added successfully");
 
             this.Navigation.PopAsync();
