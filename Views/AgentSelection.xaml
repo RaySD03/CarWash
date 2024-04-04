@@ -37,11 +37,18 @@
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Continue"
                  FontSize="20"  
-                 Background="#AC99EA"
                  Clicked="gotoReviewDetails"
                  MaximumWidthRequest="400"
                  TextColor="#222"
                  Margin="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+             Offset="0.1" />
+                        <GradientStop Color="#777"
+             Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
         </VerticalStackLayout>
 

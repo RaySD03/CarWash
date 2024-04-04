@@ -12,10 +12,14 @@
     </ContentPage.Resources>
 
 
-    <Grid RowDefinitions="auto,*,Auto" 
+    <Grid RowDefinitions="auto,*,1.3*,Auto" 
           ColumnDefinitions="*">
 
         <Label HorizontalOptions="Center" Margin="0,20,0,20" FontSize="20" Text="Step 5 / 5" TextColor="AliceBlue"></Label>
+
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,80,0,15">
+            <Label FontSize="15" Text="Selected car(s) and services" VerticalOptions="End"></Label>
+        </HorizontalStackLayout>
 
         <Border Background="#222"
                 Stroke="#151B24"
@@ -26,18 +30,18 @@
             <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList_Services.Cars}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
+                        <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" VerticalOptions="Start" Padding="12,8,12,8">
                             <Grid ColumnDefinitions="2*,*">
                                 <HorizontalStackLayout>
-                                    <Rectangle Margin="0,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                    <Rectangle Margin="5,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
                                         WidthRequest="12"
                                         HeightRequest="12">
                                     </Rectangle>
                                 </HorizontalStackLayout>
                                 <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="35,0,0,0">
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="15" Text="{Binding Make}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="15" Text="{Binding Model}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="15" Text="{Binding Year}"></Label>
                                 </VerticalStackLayout>
 
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
@@ -54,15 +58,27 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Border>
+        
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,15" Grid.Row="2">
+            <Label FontSize="15" Text="Date and time:" VerticalOptions="Start" ></Label>
+
+        </HorizontalStackLayout>
 
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Confirm"
                  FontSize="20"  
-                 Background="#AC99EA"
                  Clicked="confirm"
                  MaximumWidthRequest="400"
                  TextColor="#222"
                  Margin="10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#eee"
+             Offset="0.1" />
+                        <GradientStop Color="#777"
+             Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
         </VerticalStackLayout>
 

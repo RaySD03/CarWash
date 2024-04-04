@@ -87,7 +87,7 @@
                                              HeightRequest="12">
                                         </Rectangle>
                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout Margin="35,0,0,0">
+                                    <HorizontalStackLayout Margin="30,0,0,0">
                                         <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
                                          <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
