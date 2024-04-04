@@ -19,6 +19,7 @@ public partial class HomeScreen : ContentPage
         //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
         BindingContext = new Garage();
+        getCarList();
     }
     protected override async void OnAppearing()
     {
@@ -26,8 +27,7 @@ public partial class HomeScreen : ContentPage
 
         string filepath = "C:\\Users\\aniks\\OneDrive\\Desktop\\application_default_credentials.json";
         Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
-        CarListCollectionView.ItemsSource = Garage.Cars;
-        getCarList();
+        CarListCollectionView.ItemsSource = Garage.Cars;    
     }
 
     public async Task getCarList()
@@ -35,8 +35,7 @@ public partial class HomeScreen : ContentPage
         Garage.Cars.Clear();
 
         try
-        {
-            var car = new Garage { Identifier = "", Make = "", Model = "", Year = "", Color = "Silver", Icon = "car_list_icon.png" };
+        {        
             var email = Preferences.Get("UserEmail", "");
             var vm = BindingContext as Garage;
 
@@ -45,35 +44,35 @@ public partial class HomeScreen : ContentPage
 
             await Task.Run(async () =>
             {
-                int i = 0;
-                foreach (DocumentSnapshot doc in await docRef)
+                foreach (DocumentSnapshot doc in await docRef.ConfigureAwait(false))
                 {
+                    var car = new Garage { Identifier = "", Make = "", Model = "", Year = "", Color = "Silver", Icon = "car_list_icon.png" };
                     DocumentSnapshot retrieved_car = await db.Collection("users").Document(email.ToString()).Collection("CarList").Document(doc.Id).GetSnapshotAsync();
                
                     foreach (KeyValuePair<string, object> pair in retrieved_car.ToDictionary())
                     {
                         if (pair.Key == "Make")
                         {
-                            car.Make = pair.Value.ToString();
+                            car.Make = (string)pair.Value;
                         }
                         if (pair.Key == "Model")
                         {
-                            car.Model = pair.Value.ToString();
+                            car.Model = (string)pair.Value;
                         }
                         if (pair.Key == "Year")
                         {
-                            car.Year = pair.Value.ToString();
+                            car.Year = (string)pair.Value;
                         }
                         if (pair.Key == "Color")
                         {
-                            car.Color = pair.Value.ToString();
+                            car.Color = (string)pair.Value;
                         }
                     }
+                    // Set identifier of each car which is the docID from the db
                     car.Identifier = doc.Id;
-                    Garage.Cars.Insert(i, car);
-                    i++;
+                    Garage.Cars.Add(car);
                 }
-            });         
+            });
         }
         catch (Exception ex) 
         { 
