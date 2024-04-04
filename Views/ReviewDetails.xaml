@@ -3,8 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.ReviewDetails"
              xmlns:iOS="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:local2="clr-namespace:CarWash.Models"
              iOS:Page.UseSafeArea="True"
              Title="Review Details">
+
+    <ContentPage.Resources>
+        <local2:StringToColor x:Key="StringToColor" />
+    </ContentPage.Resources>
+
 
     <Grid RowDefinitions="auto,*,Auto" 
           ColumnDefinitions="*">
@@ -22,12 +28,26 @@
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
-                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
+                                <HorizontalStackLayout>
+                                    <Rectangle Margin="0,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                        WidthRequest="12"
+                                        HeightRequest="12">
+                                    </Rectangle>
+                                </HorizontalStackLayout>
+                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="35,0,0,0">
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Service}"></Label>
                                 </VerticalStackLayout>
+
+                                <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <VerticalStackLayout>
+                                        <Label Text="Service:"></Label>
+                                        <Label Text="{Binding Service}" FontSize="15"></Label>
+                                        
+                                    </VerticalStackLayout>
+                                   
+                                </HorizontalStackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>

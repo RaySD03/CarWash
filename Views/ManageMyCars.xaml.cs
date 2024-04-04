@@ -10,15 +10,16 @@ public partial class ManageMyCars : ContentPage
 		InitializeComponent();
         BindingContext = new Garage();
     }
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
+        CarListCollectionView.ItemsSource = Garage.Cars;
         getCarList();
     }
-    private void getCarList()
-    {
-        CarListCollectionView.ItemsSource = Garage.Cars;
 
+    public async void getCarList()
+    {
+       
         if (Garage.Cars.Count == 0)
         {
             Label.Text = "Tap the + button to add a car.";
@@ -45,16 +46,8 @@ public partial class ManageMyCars : ContentPage
         var email = Preferences.Get("UserEmail", "");
 
         FirestoreDb db = FirestoreDb.Create("carwash-da88f");
-        string carid = car.Identifier.ToString();
-        DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(car.Identifier.ToString());
+        DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(car.Identifier);
         docRef.DeleteAsync();
-
-        int i = 0;
-        foreach (var entry in Garage.Cars)
-        {
-            entry.Identifier = i;
-            i++;
-        }
 
         if (Garage.Cars.Count < 5) 
         {

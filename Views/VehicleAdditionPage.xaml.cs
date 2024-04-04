@@ -9,24 +9,30 @@ public partial class VehicleAdditionPage : ContentPage
 	public VehicleAdditionPage()
 	{
 		InitializeComponent();
+        BindingContext = Garage.Cars;
 	}
     public async void addCar(object sender, EventArgs e)
     {
         if (Garage.Cars.Count < 5)
         {
-            var car = new Garage { Identifier = Garage.Cars.Last().Identifier + 1, Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString(), Icon = "car_list_icon.png" };
-            Garage.Cars.Add(car);
+            var car = new Garage { Identifier = "", Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString(), Icon = "car_list_icon.png" };
+            
+            try 
+            {           
+                var email = Preferences.Get("UserEmail", "");
 
-            var email = Preferences.Get("UserEmail", "");
+                FirestoreDb db = FirestoreDb.Create("carwash-da88f");
+                DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document();
+                docRef.CreateAsync(new { Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString()});
 
-            FirestoreDb db = FirestoreDb.Create("carwash-da88f");
-            string carid = car.Identifier.ToString();
-            DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(carid);
-            docRef.CreateAsync(new { Make= car.Make, Model= car.Model, Year= car.Year, Color= car.Color });
+                Garage.Cars.Add(car);
+                await this.Navigation.PopAsync();
+            } 
+            catch (Exception ex) 
+            {
 
-            Console.WriteLine("Car added successfully");
-
-            this.Navigation.PopAsync();
+            }
+          
         }
         else
         {

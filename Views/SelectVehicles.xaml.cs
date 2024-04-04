@@ -6,6 +6,7 @@ public partial class SelectVehicles : ContentPage
 {
 	public SelectVehicles()
 	{
+        BindingContext = new Garage();
 		InitializeComponent();
         CarList_Selected.Cars.Clear();
         CarListCollectionView.ItemsSource = Garage.Cars;

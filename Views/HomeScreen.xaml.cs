@@ -1,7 +1,10 @@
 using CarWash.Models;
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
+using Microsoft.Maui.ApplicationModel.Communication;
+using System;
 using System.Collections.ObjectModel;
+using System.Formats.Tar;
 using static Google.Cloud.Firestore.V1.StructuredQuery.Types;
 
 
@@ -10,31 +13,72 @@ public partial class HomeScreen : ContentPage
 {
     public HomeScreen()
 	{
-		InitializeComponent();
+        InitializeComponent();
+        //Garage.Cars.Add(new Garage { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
+        //Garage.Cars.Add(new Garage { Identifier = "1", Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
+        //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
+        //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
         BindingContext = new Garage();
-        Garage.Cars.Add(new Garage { Identifier = 0, Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Identifier = 1, Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Identifier = 2, Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Identifier = 3, Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
-        getCarList();
-
     }
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        CarListCollectionView.ItemsSource = Garage.Cars;
 
         string filepath = "C:\\Users\\aniks\\OneDrive\\Desktop\\application_default_credentials.json";
         Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
-
-        FirestoreDb db = FirestoreDb.Create("carwash-da88f");
-        // Create a document with a random ID in the "users" collection.
-        //CollectionReference collection = db.Collection("users");
-        //DocumentReference document = await collection.AddAsync(new { Name = new { First = "Ada", Last = "Lovelace" }, Born = 1815 });
+        CarListCollectionView.ItemsSource = Garage.Cars;
+        getCarList();
     }
-    private void getCarList()
+
+    public async Task getCarList()
 	{
-        CarListCollectionView.ItemsSource = Garage.Cars;          
+        Garage.Cars.Clear();
+
+        try
+        {
+            var car = new Garage { Identifier = "", Make = "", Model = "", Year = "", Color = "Silver", Icon = "car_list_icon.png" };
+            var email = Preferences.Get("UserEmail", "");
+            var vm = BindingContext as Garage;
+
+            FirestoreDb db = FirestoreDb.Create("carwash-da88f");
+            var docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").GetSnapshotAsync();
+
+            await Task.Run(async () =>
+            {
+                int i = 0;
+                foreach (DocumentSnapshot doc in await docRef)
+                {
+                    DocumentSnapshot retrieved_car = await db.Collection("users").Document(email.ToString()).Collection("CarList").Document(doc.Id).GetSnapshotAsync();
+               
+                    foreach (KeyValuePair<string, object> pair in retrieved_car.ToDictionary())
+                    {
+                        if (pair.Key == "Make")
+                        {
+                            car.Make = pair.Value.ToString();
+                        }
+                        if (pair.Key == "Model")
+                        {
+                            car.Model = pair.Value.ToString();
+                        }
+                        if (pair.Key == "Year")
+                        {
+                            car.Year = pair.Value.ToString();
+                        }
+                        if (pair.Key == "Color")
+                        {
+                            car.Color = pair.Value.ToString();
+                        }
+                    }
+                    car.Identifier = doc.Id;
+                    Garage.Cars.Insert(i, car);
+                    i++;
+                }
+            });         
+        }
+        catch (Exception ex) 
+        { 
+        
+        }
     }
 	public async void goToSchedule(object sender, EventArgs e)
 	{
