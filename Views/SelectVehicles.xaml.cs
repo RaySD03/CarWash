@@ -14,17 +14,18 @@ public partial class SelectVehicles : ContentPage
     {
         var checkbox = sender as CheckBox;
         var selected = checkbox.BindingContext as Garage;
-        var car = new CarList_Selected { Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "" };
+        var car = new CarList_Selected { Identifier = selected.Identifier, Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "TBD" };
 
         // Add or remove checked cars from the collectionview to services list
         if (checkbox.IsChecked == true)
         {
-
+            
             CarList_Selected.Cars.Add(car);
         }
         else
         {
-            CarList_Selected.Cars.Remove(car);
+            DisplayAlert("Info", "Delete:" + selected.Model + checkbox.ToString(), "OK");
+            CarList_Selected.Cars.Remove(CarList_Selected.Cars.Where(i => i.Identifier == selected.Identifier).Single());
         }
     }
 
@@ -39,9 +40,4 @@ public partial class SelectVehicles : ContentPage
             await DisplayAlert("Error", "Please select at least one car to continue", "OK");
         }
 	}
-
-    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-
-    }
 }

@@ -41,10 +41,18 @@ public partial class ManageMyCars : ContentPage
         vm.RemoveCommand.Execute(car);
         Label.Text = Garage.Cars.Count + " / 5 cars";
 
+        int i = 0;
+        foreach (var entry in Garage.Cars)
+        {
+            entry.Identifier = i;
+            i++;
+        }
+
         if (Garage.Cars.Count < 5) 
         {
             addBtn.IsVisible = true;
         }
+
     }
     public async void goToVehicleAddition(object sender, EventArgs e)
     {

@@ -76,18 +76,18 @@
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1">
 
-                <CollectionView x:Name="CarListCollectionView">
+                <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding Models.Garage.Cars}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BorderColor="Transparent" Background="#252525" Margin="5" Padding="12,5,5,5">
                                 <Grid ColumnDefinitions="2*,*">
                                     <HorizontalStackLayout>
-                                        <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                        <Rectangle Margin="5,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
                                              WidthRequest="12"
                                              HeightRequest="12">
                                         </Rectangle>
                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout Margin="30,0,0,0">
+                                    <HorizontalStackLayout Margin="40,0,0,0">
                                         <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
                                          <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>

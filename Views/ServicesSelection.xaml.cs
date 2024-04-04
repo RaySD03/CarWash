@@ -24,6 +24,6 @@ public partial class ServicesSelection : ContentPage
         var selected = option.BindingContext as CarList_Selected;
         selected.Service = option.SelectedItem.ToString();
 
-        DisplayAlert("Info", "Service:" + selected.Model + option.SelectedItem.ToString(), "OK");
+        DisplayAlert("Info", "Identifier:" + selected.Identifier + "\nMake:" + selected.Make +  "\nModel:" + selected.Model, "OK");
     }
 }

@@ -8,12 +8,18 @@ public partial class HomeScreen : ContentPage
     public HomeScreen()
 	{
 		InitializeComponent();
-        Garage.Cars.Add(new Garage { Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
-        Garage.Cars.Add(new Garage { Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
+        BindingContext = new Garage();
+        Garage.Cars.Add(new Garage { Identifier = 0, Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Identifier = 1, Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Identifier = 2, Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
+        Garage.Cars.Add(new Garage { Identifier = 3, Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
         getCarList();
 	}
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        CarListCollectionView.ItemsSource = Garage.Cars;
+    }
     private void getCarList()
 	{
         CarListCollectionView.ItemsSource = Garage.Cars;          
