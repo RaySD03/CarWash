@@ -9,13 +9,13 @@ public partial class VehicleAdditionPage : ContentPage
 	public VehicleAdditionPage()
 	{
 		InitializeComponent();
-        BindingContext = Garage.Cars;
+        BindingContext = Car.Cars;
 	}
     public async void addCar(object sender, EventArgs e)
     {
-        if (Garage.Cars.Count < 5)
+        if (Car.Cars.Count < 5)
         {
-            var car = new Garage { Identifier = "", Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString(), Icon = "car_list_icon.png" };
+            var car = new Car { Identifier = "", Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString(), Icon = "car_list_icon.png" };
             
             try 
             {           
@@ -25,7 +25,7 @@ public partial class VehicleAdditionPage : ContentPage
                 DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document();
                 docRef.CreateAsync(new { Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString()});
 
-                Garage.Cars.Add(car);
+                Car.Cars.Add(car);
                 await this.Navigation.PopAsync();
             } 
             catch (Exception ex) 

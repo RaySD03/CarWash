@@ -11,21 +11,24 @@
         <Label HorizontalOptions="Center" Margin="0,20,0,20" FontSize="20" Text="Step 4 / 5" TextColor="AliceBlue"></Label>
 
         <Border Background="#222"
-                 Stroke="#151B24"
-                    VerticalOptions="Center"
-                 StrokeShape="RoundRectangle 0,0,0,0"
-                 StrokeThickness="1" Grid.Row="1">
+                Stroke="#151B24"
+                VerticalOptions="Center"
+                StrokeShape="RoundRectangle 0,0,0,0"
+                StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList.Cars}">
+            <CollectionView x:Name="CarListCollectionView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
                                 <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Name}"></Label>
+                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding LastName}"></Label>
                                 </VerticalStackLayout>
+                                
+                                <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <Button Text="Select" FontSize="13" FontAttributes="None" TextColor="Black" Background="#bbb"></Button>
+                                </HorizontalStackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>

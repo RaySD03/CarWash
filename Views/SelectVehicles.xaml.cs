@@ -6,26 +6,25 @@ public partial class SelectVehicles : ContentPage
 {
 	public SelectVehicles()
 	{
-        BindingContext = new Garage();
+        BindingContext = new Car();
 		InitializeComponent();
         CarList_Selected.Cars.Clear();
-        CarListCollectionView.ItemsSource = Garage.Cars;
+        CarListCollectionView.ItemsSource = Car.Cars;
 	}
     public void CheckBox_CheckedChanged(object sender, EventArgs e)
     {
         var checkbox = sender as CheckBox;
-        var selected = checkbox.BindingContext as Garage;
+        var selected = checkbox.BindingContext as Car;
         var car = new CarList_Selected { Identifier = selected.Identifier, Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "TBD" };
 
         // Add or remove checked cars from the collectionview to services list
         if (checkbox.IsChecked == true)
-        {
-            
+        {        
             CarList_Selected.Cars.Add(car);
         }
         else
         {
-            DisplayAlert("Info", "Delete:" + selected.Model + checkbox.ToString(), "OK");
+            //DisplayAlert("Info", "Delete:" + selected.Model + checkbox.ToString(), "OK");
             CarList_Selected.Cars.Remove(CarList_Selected.Cars.Where(i => i.Identifier == selected.Identifier).Single());
         }
     }

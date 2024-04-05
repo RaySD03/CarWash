@@ -9,7 +9,7 @@
         <VerticalStackLayout VerticalOptions="Center">
 
 
-            <Image Margin="0,0,0,15" WidthRequest="120" Source="car_list_icon.png"></Image>
+            <Image Margin="0,0,0,15"  WidthRequest="105" Source="car_list_icon.png"></Image>
 
             <Border Stroke="#151B24"
                 StrokeShape="RoundRectangle 10,10,10,10"
@@ -21,38 +21,38 @@
                 <VerticalStackLayout>
                     <Label Text="Details:"
                            TextColor="AliceBlue"
-                           FontSize="17"
+                           FontSize="16"
                            HorizontalTextAlignment="Center"
                            Margin="0,0,0,10"
                            FontAttributes="Bold">
                     </Label>
 
                     <Entry x:Name="makeEntry"
-                    Placeholder="Make:"
-                    Margin="0,10,0,10"
-                    CharacterSpacing="0.5"
-                    TextColor="#eee"
-                    ClearButtonVisibility="WhileEditing"
-                    Background="#333"
-                    FontSize="19"/>
+                        Placeholder="Make:"
+                        Margin="0,10,0,10"
+                        CharacterSpacing="0.5"
+                        TextColor="#eee"
+                        ClearButtonVisibility="WhileEditing"
+                        Background="#333"
+                        FontSize="19"/>
 
                     <Entry x:Name="modelEntry"
-                    Placeholder="Model:"
-                    Margin="0,10,0,10"
-                    CharacterSpacing="0.5"
-                    TextColor="#eee"
-                    ClearButtonVisibility="WhileEditing"
-                    Background="#333"
-                    FontSize="19"/>
+                        Placeholder="Model:"
+                        Margin="0,10,0,10"
+                        CharacterSpacing="0.5"
+                        TextColor="#eee"
+                        ClearButtonVisibility="WhileEditing"
+                        Background="#333"
+                        FontSize="19"/>
 
                     <Entry x:Name="yearEntry"
-                     Placeholder="Year:"
-                     CharacterSpacing="0.5"
-                     TextColor="#eee"
-                     Margin="0,10,0,10"                  
-                     ClearButtonVisibility="WhileEditing"
-                     Background="#333"
-                     FontSize="19"/>
+                         Placeholder="Year:"
+                         CharacterSpacing="0.5"
+                         TextColor="#eee"
+                         Margin="0,10,0,10"                  
+                         ClearButtonVisibility="WhileEditing"
+                         Background="#333"
+                         FontSize="19"/>
 
                     <VerticalStackLayout VerticalOptions="Center"  HorizontalOptions="Start">
                         <Picker x:Name="ColorPicker"

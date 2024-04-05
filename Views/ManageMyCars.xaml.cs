@@ -8,19 +8,19 @@ public partial class ManageMyCars : ContentPage
 	public ManageMyCars()
 	{
 		InitializeComponent();
-        BindingContext = new Garage();
+        BindingContext = new Car();
     }
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        CarListCollectionView.ItemsSource = Garage.Cars;
+        CarListCollectionView.ItemsSource = Car.Cars;
         getCarList();
     }
 
     public async void getCarList()
     {
        
-        if (Garage.Cars.Count == 0)
+        if (Car.Cars.Count == 0)
         {
             Label.Text = "Tap the + button to add a car.";
             CarListCollectionView.IsVisible = false;
@@ -28,20 +28,20 @@ public partial class ManageMyCars : ContentPage
         }
         else
         {
-            Label.Text = Garage.Cars.Count + " / 5 cars";
+            Label.Text = Car.Cars.Count + " / 5 cars";
             CarListCollectionView.IsVisible = true;
 
-            if (Garage.Cars.Count == 5)
+            if (Car.Cars.Count == 5)
                 addBtn.IsVisible = false;
         }
     }
     public void Remove_Selected_Car(object sender, EventArgs e)
     {
         var button = sender as Button;
-        var car = button.BindingContext as Garage;
-        var vm = BindingContext as Garage;
+        var car = button.BindingContext as Car;
+        var vm = BindingContext as Car;
         vm.RemoveCommand.Execute(car);
-        Label.Text = Garage.Cars.Count + " / 5 cars";
+        Label.Text = Car.Cars.Count + " / 5 cars";
 
         var email = Preferences.Get("UserEmail", "");
 
@@ -49,7 +49,7 @@ public partial class ManageMyCars : ContentPage
         DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(car.Identifier);
         docRef.DeleteAsync();
 
-        if (Garage.Cars.Count < 5) 
+        if (Car.Cars.Count < 5) 
         {
             addBtn.IsVisible = true;
         }

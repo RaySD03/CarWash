@@ -18,7 +18,7 @@ public partial class HomeScreen : ContentPage
         //Garage.Cars.Add(new Garage { Identifier = "1", Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
-        BindingContext = new Garage();
+        BindingContext = new Car();
         getCarList();
     }
     protected override async void OnAppearing()
@@ -27,17 +27,17 @@ public partial class HomeScreen : ContentPage
 
         string filepath = "C:\\Users\\aniks\\OneDrive\\Desktop\\application_default_credentials.json";
         Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
-        CarListCollectionView.ItemsSource = Garage.Cars;    
+        CarListCollectionView.ItemsSource = Car.Cars;    
     }
 
     public async Task getCarList()
 	{
-        Garage.Cars.Clear();
+        Car.Cars.Clear();
 
         try
         {        
             var email = Preferences.Get("UserEmail", "");
-            var vm = BindingContext as Garage;
+            var vm = BindingContext as Car;
 
             FirestoreDb db = FirestoreDb.Create("carwash-da88f");
             var docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").GetSnapshotAsync();
@@ -46,7 +46,7 @@ public partial class HomeScreen : ContentPage
             {
                 foreach (DocumentSnapshot doc in await docRef.ConfigureAwait(false))
                 {
-                    var car = new Garage { Identifier = "", Make = "", Model = "", Year = "", Color = "Silver", Icon = "car_list_icon.png" };
+                    var car = new Car { Identifier = "", Make = "", Model = "", Year = "", Color = "Silver", Icon = "car_list_icon.png" };
                     DocumentSnapshot retrieved_car = await db.Collection("users").Document(email.ToString()).Collection("CarList").Document(doc.Id).GetSnapshotAsync();
                
                     foreach (KeyValuePair<string, object> pair in retrieved_car.ToDictionary())
@@ -70,7 +70,7 @@ public partial class HomeScreen : ContentPage
                     }
                     // Set identifier of each car which is the docID from the db
                     car.Identifier = doc.Id;
-                    Garage.Cars.Add(car);
+                    Car.Cars.Add(car);
                 }
             });
         }
@@ -81,7 +81,7 @@ public partial class HomeScreen : ContentPage
     }
 	public async void goToSchedule(object sender, EventArgs e)
 	{
-        if (Garage.Cars.Count > 0)
+        if (Car.Cars.Count > 0)
         {
             await Navigation.PushAsync(new Schedule());
         }

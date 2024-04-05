@@ -79,7 +79,7 @@
                 <CollectionView x:Name="CarListCollectionView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BorderColor="Transparent" Background="#272727" Margin="5" Padding="12,5,5,5">
+                            <Frame BorderColor="Transparent" Background="#272727" Margin="5" Padding="12,9,5,9">
                                 <Grid ColumnDefinitions="2*,*">
                                     <HorizontalStackLayout>
                                         <Rectangle Margin="0,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
@@ -89,13 +89,13 @@
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="30,0,0,0">
                                         <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
-                                         <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="17" Text="{Binding Make}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="17" Text="{Binding Model}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="17" Text="{Binding Year}"></Label>
                                         </VerticalStackLayout>
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                        <Image HorizontalOptions="End" Source="{Binding Icon}"></Image>
+                                        <Image HorizontalOptions="End" WidthRequest="90" Source="{Binding Icon}"></Image>
                                     </HorizontalStackLayout>
                                 </Grid>
                             </Frame>
