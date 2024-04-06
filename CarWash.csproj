@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\agent_icon.svg" />
 	  <None Remove="Resources\Images\appointments_icon.svg" />
 	  <None Remove="Resources\Images\calendar_icon.svg" />
 	  <None Remove="Resources\Images\car_icon.svg" />
@@ -69,6 +70,11 @@
 	  <None Remove="Resources\Images\logout_icon.svg" />
 	  <None Remove="Resources\Images\profile_icon.svg" />
 	  <None Remove="Resources\Images\schedule.svg" />
+	  <None Remove="Resources\Images\star_rating_1.svg" />
+	  <None Remove="Resources\Images\star_rating_2.svg" />
+	  <None Remove="Resources\Images\star_rating_3.svg" />
+	  <None Remove="Resources\Images\star_rating_4.svg" />
+	  <None Remove="Resources\Images\star_rating_5.svg" />
 	  <None Remove="Resources\Images\user_login_icon.svg" />
 	  <None Remove="Resources\Images\user_profile_default.svg" />
 	  <None Remove="Resources\Images\user_signup_icon.svg" />

@@ -19,11 +19,19 @@
             <CollectionView x:Name="AgentListCollectionView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
+                        <Frame BorderColor="Transparent" Background="#353535" Margin="10,0,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
-                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding Name}"></Label>
-                                    <Label TextColor="LightGrey" FontSize="19" Text="{Binding LastName}"></Label>
+                                    <VerticalStackLayout HorizontalOptions="Start" Grid.Column="0">
+                                    <HorizontalStackLayout>
+                                        <VerticalStackLayout>
+                                            <Image Source="agent_icon.png" WidthRequest="32" Margin="0,10,0,0"></Image>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Margin="14,0,0,0">
+                                            <Label TextColor="LightGrey" FontSize="19" Text="{Binding Name}"></Label>
+                                            <Label TextColor="LightGrey" FontSize="19" Text="{Binding LastName}"></Label>
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                    <Image Margin="0,5,0,0" Source="{Binding Rating}" WidthRequest="140"></Image>
                                 </VerticalStackLayout>
 
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">

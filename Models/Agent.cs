@@ -13,6 +13,7 @@ namespace CarWash.Models
         public string Identifier { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
+        public string Rating { get; set; }
 
         public static ObservableCollection<Agent> Agents = new ObservableCollection<Agent>();
 

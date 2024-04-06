@@ -41,6 +41,10 @@ public partial class AgentSelection : ContentPage
                         {
                             agent.LastName = (string)pair.Value;
                         }
+                        if (pair.Key == "Rating")
+                        {
+                            agent.Rating = "star_rating_" + (string)pair.Value + ".png";
+                        }
                     }
                     // Add agent
                     Agent.Agents.Add(agent);
