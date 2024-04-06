@@ -14,15 +14,14 @@ namespace CarWash.Models
         public string Name { get; set; }
         public string LastName { get; set; }
 
-
-        public static ObservableCollection<Agent> agent = new ObservableCollection<Agent>();
+        public static ObservableCollection<Agent> Agents = new ObservableCollection<Agent>();
 
         public Command<Agent> RemoveCommand
         {
             get
             {
                 return new Command<Agent>((Agent) => {
-                    agent.Remove(Agent);
+                    Agents.Remove(Agent);
                 });
             }
         }
@@ -32,13 +31,9 @@ namespace CarWash.Models
             get
             {
                 return new Command<Agent>((Agent) => {
-                    agent.Add(Agent);
+                    Agents.Add(Agent);
                 });
             }
         }
-
     }
-
-   
-
 }

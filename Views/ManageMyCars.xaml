@@ -15,18 +15,17 @@
           ColumnDefinitions="*"
           Padding="0">
 
-
         <Label x:Name="Label" IsVisible="True"  FontSize="19" HorizontalOptions="Center" Grid.ColumnSpan="2" VerticalOptions="Center" TextColor="AliceBlue"></Label>
         
-      <Border Background="#222"
-      Stroke="#151B24"
-      StrokeShape="RoundRectangle 0,0,0,0"
-      StrokeThickness="1" Grid.Row="1">
+          <Border Background="#222"
+          Stroke="#151B24"
+          StrokeShape="RoundRectangle 0,0,0,0"
+          StrokeThickness="1" Grid.Row="1">
 
             <CollectionView x:Name="CarListCollectionView" Background="#111">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent" Background="#222" Margin="10,0,10,10" Padding="15,8,12,8">
+                        <Frame BorderColor="Transparent" Background="#222" Margin="10,0,10,10" Padding="15,9,12,9">
                             <Grid ColumnDefinitions="2*,*">
                                 <HorizontalStackLayout>
                                     <Rectangle Margin="0,0,0,0" Fill="{x:Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
@@ -39,16 +38,15 @@
                                     <Label TextColor="LightGrey" FontSize="17" Text="{x:Binding Model}"></Label>
                                     <Label TextColor="LightGrey" FontSize="17" Text="{x:Binding Year}"></Label>
                                 </VerticalStackLayout>
-
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                    <Button Text="Remove" FontSize="13" FontAttributes="None" TextColor="Black" Background="#CC310E" Clicked="Remove_Selected_Car"></Button>
+                                    <Button Text="Remove" FontSize="13" FontAttributes="None" TextColor="#eee" Background="#BA3621" Clicked="Remove_Selected_Car"></Button>
                                 </HorizontalStackLayout>
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </Border>
+          </Border>
 
 
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">

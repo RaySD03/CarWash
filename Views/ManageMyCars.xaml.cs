@@ -40,15 +40,19 @@ public partial class ManageMyCars : ContentPage
         var button = sender as Button;
         var car = button.BindingContext as Car;
         var vm = BindingContext as Car;
+        // Remove car from local ObservableCollection
         vm.RemoveCommand.Execute(car);
+
+        // Update car count label
         Label.Text = Car.Cars.Count + " / 5 cars";
 
+        // Remove car from database
         var email = Preferences.Get("UserEmail", "");
-
         FirestoreDb db = FirestoreDb.Create("carwash-da88f");
         DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document(car.Identifier);
         docRef.DeleteAsync();
 
+        // If car count is < 5 after removing a car, make the addBtn visible
         if (Car.Cars.Count < 5) 
         {
             addBtn.IsVisible = true;

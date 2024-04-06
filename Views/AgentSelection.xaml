@@ -16,7 +16,7 @@
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1" Grid.Row="1">
 
-            <CollectionView x:Name="CarListCollectionView">
+            <CollectionView x:Name="AgentListCollectionView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,0,10,10" Padding="15,10,12,10">
@@ -25,7 +25,7 @@
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding Name}"></Label>
                                     <Label TextColor="LightGrey" FontSize="19" Text="{Binding LastName}"></Label>
                                 </VerticalStackLayout>
-                                
+
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
                                     <Button Text="Select" FontSize="13" FontAttributes="None" TextColor="Black" Background="#bbb"></Button>
                                 </HorizontalStackLayout>
