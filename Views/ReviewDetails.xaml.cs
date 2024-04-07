@@ -8,7 +8,7 @@ public partial class ReviewDetails : ContentPage
 	public ReviewDetails()
 	{
 		InitializeComponent();
-        CarListCollectionView.ItemsSource = CarList_Selected.Cars;
+        CarListCollectionView.ItemsSource = CarList_Services.Cars;
         AgentLabel.Text = Appointment.MyAppointment.Agent;
         DateLabel.Text = Appointment.MyAppointment.Date;
         TimeLabel.Text = Appointment.MyAppointment.Time;

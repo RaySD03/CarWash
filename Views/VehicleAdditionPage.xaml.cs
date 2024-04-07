@@ -33,7 +33,6 @@ public partial class VehicleAdditionPage : ContentPage
             {
 
             }
-          
         }
         else
         {

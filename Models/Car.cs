@@ -18,7 +18,6 @@ namespace CarWash.Models
         public string Icon { get; set; }
 
         public static ObservableCollection<Car> Cars = new ObservableCollection<Car>();
-
         public Command<Car> RemoveCommand
         {
             get
@@ -37,9 +36,5 @@ namespace CarWash.Models
                 });
             }
         }
-
     }
-
-   
-
 }

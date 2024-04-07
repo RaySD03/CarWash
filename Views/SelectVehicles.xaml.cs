@@ -15,22 +15,22 @@ public partial class SelectVehicles : ContentPage
     {
         var checkbox = sender as CheckBox;
         var selected = checkbox.BindingContext as Car;
-        var car = new CarList_Selected { Identifier = selected.Identifier, Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "TBD" };
+        var car = new CarList_Services { Identifier = selected.Identifier, Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "TBD" };
 
         // Add or remove checked cars from the collectionview to services list
         if (checkbox.IsChecked == true)
         {        
-            CarList_Selected.Cars.Add(car);
+            CarList_Services.Cars.Add(car);
         }
         else
         {
-            CarList_Selected.Cars.Remove(CarList_Selected.Cars.Where(i => i.Identifier == selected.Identifier).Single());
+            CarList_Services.Cars.Remove(CarList_Services.Cars.Where(i => i.Identifier == selected.Identifier).Single());
         }
     }
 
     public async void gotoSpecifyServices(object sender, EventArgs e) 
 	{
-        if (CarList_Selected.Cars.Count > 0)
+        if (CarList_Services.Cars.Count > 0)
         {
             await Navigation.PushAsync(new ServicesSelection());
         }

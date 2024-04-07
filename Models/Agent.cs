@@ -16,7 +16,6 @@ namespace CarWash.Models
         public string Rating { get; set; }
 
         public static ObservableCollection<Agent> Agents = new ObservableCollection<Agent>();
-
         public Command<Agent> RemoveCommand
         {
             get
