@@ -43,19 +43,7 @@
                             HorizontalOptions="Center">
                         <Grid ColumnDefinitions="2*,*">
                                 <VerticalStackLayout>
-                                    <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="0,0,0,0">
-                                         <VerticalStackLayout>
-                                                <HorizontalStackLayout>
-                                                    <Label TextColor="LightBlue" FontSize="16" Text="Agent: "></Label>
-                                                    <Label Margin="10,0,0,0" TextColor="#aaa" FontSize="16" FontAttributes="Bold" Text="{x:Binding Agent}"></Label>
-                                                </HorizontalStackLayout>
-                                                <HorizontalStackLayout>
-                                                    <Label Margin="27,4,0,0" TextColor="LightGrey" FontSize="16" Text="ID: "></Label>
-                                                    <Label Margin="10,4,0,0" TextColor="LightGrey" FontSize="16"  FontAttributes="Bold" Text="{x:Binding AgentID}"></Label>
-                                                </HorizontalStackLayout>
-                                         </VerticalStackLayout>
-                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout Margin="0,8,0,0">
+                                    <HorizontalStackLayout Margin="0,5,0,5">
                                     <VerticalStackLayout>
                                             <HorizontalStackLayout>
                                                 <Label TextColor="LightGrey" FontSize="16" Text="Date: "></Label>
@@ -69,7 +57,7 @@
                                 </HorizontalStackLayout>
                                 </VerticalStackLayout>
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                    <Button Text="View" FontSize="13" FontAttributes="None" TextColor="#eee" Background="#777"></Button>
+                                    <Button Text="View" FontSize="13" FontAttributes="None" TextColor="#eee" Background="#777" Clicked="gotoViewDetails"></Button>
                                 </HorizontalStackLayout>
                             </Grid>
                         </Border>

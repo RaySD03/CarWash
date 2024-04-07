@@ -12,6 +12,14 @@ public partial class MyAppointments : ContentPage
 		
         AppointmentsCollectionView.ItemsSource = Appointment.MyAppointments;
     }
+    public async void gotoViewDetails(object sender, EventArgs e)
+    {
+        var button = (Button)sender;
+        var appointment = button.BindingContext as Appointment;
+
+        await Navigation.PushAsync(new AppointmentDetails(appointment.Agent, appointment.AgentID, appointment.Date, appointment.Time));
+
+    }
     public async Task getAppointments()
     {
         try

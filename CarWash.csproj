@@ -102,6 +102,9 @@
 	  <MauiXaml Update="Views\AgentSelection.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AppointmentDetails.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\HomeScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -84,10 +84,9 @@
                 <Button x:Name="logout_Btn"
                       Grid.Row="0"
                       Grid.Column="0"
-                      FontSize="21"
+                      FontSize="20"
                       Margin="10,10,10,15"
-                      MaximumWidthRequest="370"
-
+                      MaximumWidthRequest="300"
                       HorizontalOptions="FillAndExpand"
                       VerticalOptions="End"
                       Text="Log Out"

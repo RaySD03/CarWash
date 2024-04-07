@@ -76,7 +76,7 @@
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1">
 
-                <CollectionView x:Name="CarListCollectionView">
+                <CollectionView x:Name="CarListCollectionView" VerticalScrollBarVisibility="Default">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Stroke="#333"

@@ -25,7 +25,13 @@
             <CollectionView x:Name="CarListCollectionView" Background="#111">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="Transparent" Background="#222" Margin="10,0,10,10" Padding="15,9,12,9">
+                        <Border Stroke="#444"
+                              Margin="7,6,7,2"
+                              StrokeThickness="1"
+                              StrokeShape="RoundRectangle 10,10,10,10"
+                              Background="#222"
+                              Padding="12,12,10,12"
+                              HorizontalOptions="Center">
                             <Grid ColumnDefinitions="2*,*">
                                 <HorizontalStackLayout>
                                     <Rectangle Margin="0,0,0,0" Fill="{x:Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
@@ -33,7 +39,7 @@
                                         HeightRequest="12">
                                     </Rectangle>
                                 </HorizontalStackLayout>
-                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="30,0,0,0">
+                                <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="28,0,0,0">
                                     <Label TextColor="LightGrey" FontSize="17" Text="{x:Binding Make}"></Label>
                                     <Label TextColor="LightGrey" FontSize="17" Text="{x:Binding Model}"></Label>
                                     <Label TextColor="LightGrey" FontSize="17" Text="{x:Binding Year}"></Label>
@@ -42,7 +48,7 @@
                                     <Button Text="Remove" FontSize="13" FontAttributes="None" TextColor="#eee" Background="#BA3621" Clicked="Remove_Selected_Car"></Button>
                                 </HorizontalStackLayout>
                             </Grid>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
