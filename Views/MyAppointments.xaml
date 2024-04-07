@@ -4,12 +4,79 @@
              x:Class="CarWash.Views.MyAppointments"
              Title="My Appointments"
              Background="#111">
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
-        <Label 
-            Text="You don't have any appointments yet."
-            TextColor="Wheat"
-            VerticalOptions="End" 
-            FontSize="16"
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent" 
+          RowDefinitions="1.5*,auto" 
+          ColumnDefinitions="*"
+          Padding="0">
+
+        <Label x:Name="NoAppointmentLabel"
+          Text="You don't have any appointments yet."
+          TextColor="Wheat"
+          VerticalOptions="End" 
+          FontSize="16"
+          HorizontalOptions="Center" />
+
+        <Border Background="Transparent"
+              Stroke="#151B24"
+              Margin="0,30,0,0"
+              StrokeShape="RoundRectangle 0,0,0,0"
+              StrokeThickness="1" Grid.Row="0">
+
+            <CollectionView x:Name="AppointmentsCollectionView">
+                <CollectionView.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#111"
+                            Offset="0.1" />
+                        <GradientStop Color="#222"
+                            Offset="1.0" />
+                    </LinearGradientBrush>
+                </CollectionView.Background>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="#555"
+                            Margin="8,10,8,2"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10,10,10,10"
+                            Background="#222"
+                            Padding="15,12,15,12"
+                            HorizontalOptions="Center">
+                        <Grid ColumnDefinitions="2*,*">
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="0,0,0,0">
+                                         <VerticalStackLayout>
+                                                <HorizontalStackLayout>
+                                                    <Label TextColor="LightBlue" FontSize="16" Text="Agent: "></Label>
+                                                    <Label Margin="10,0,0,0" TextColor="#aaa" FontSize="16" FontAttributes="Bold" Text="{x:Binding Agent}"></Label>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout>
+                                                    <Label Margin="27,4,0,0" TextColor="LightGrey" FontSize="16" Text="ID: "></Label>
+                                                    <Label Margin="10,4,0,0" TextColor="LightGrey" FontSize="16"  FontAttributes="Bold" Text="{x:Binding AgentID}"></Label>
+                                                </HorizontalStackLayout>
+                                         </VerticalStackLayout>
+                                     </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="0,8,0,0">
+                                    <VerticalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label TextColor="LightGrey" FontSize="16" Text="Date: "></Label>
+                                                <Label Margin="10,0,0,0" TextColor="LightGrey" FontAttributes="Bold" FontSize="16" Text="{x:Binding Date}"></Label>
+                                            </HorizontalStackLayout>
+                                            <HorizontalStackLayout>
+                                                <Label Margin="0,4,0,0" TextColor="LightGrey" FontSize="16" Text="Time: "></Label>
+                                                <Label Margin="10,4,0,0" TextColor="LightGrey" FontSize="16" FontAttributes="Bold" Text="{x:Binding Time}"></Label>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <Button Text="View" FontSize="13" FontAttributes="None" TextColor="#eee" Background="#777"></Button>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
+    </Grid>
 </ContentPage>

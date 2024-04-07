@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.AgentSelection"
              Background="#222"
-             Title="Select an Agent">
+             Title="Select Agent">
 
-    <Grid RowDefinitions="auto,*,Auto" 
+    <Grid RowDefinitions="auto,*" 
          ColumnDefinitions="*">
-
+        <ProgressBar x:Name="ListLoadingProgressBar" Progress="0.1" Grid.Row="0" VerticalOptions="Start" ProgressColor="Orange"/>
         <Label HorizontalOptions="Center" Margin="0,20,0,20" FontSize="20" Text="Step 4 / 5" TextColor="AliceBlue"></Label>
 
         <Border Background="#222"
                 Stroke="#151B24"
-                VerticalOptions="Center"
+                VerticalOptions="Start"
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1" Grid.Row="1">
 
@@ -35,7 +35,7 @@
                                 </VerticalStackLayout>
 
                                 <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                    <Button Text="Select" FontSize="13" FontAttributes="None" TextColor="Black" Background="#bbb"></Button>
+                                    <Button Text="Select" FontSize="13" FontAttributes="None" TextColor="Black" Background="#bbb" Clicked="gotoReviewDetails"></Button>
                                 </HorizontalStackLayout>
                             </Grid>
                         </Frame>
@@ -43,25 +43,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Border>
-
-
-        <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
-            <Button Text="Continue"
-                 FontSize="20"  
-                 Clicked="gotoReviewDetails"
-                 MaximumWidthRequest="400"
-                 TextColor="#222"
-                 Margin="10">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#eee"
-             Offset="0.1" />
-                        <GradientStop Color="#777"
-             Offset="1.0" />
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-        </VerticalStackLayout>
 
     </Grid>
 </ContentPage>

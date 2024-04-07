@@ -25,6 +25,7 @@ public partial class VehicleAdditionPage : ContentPage
                 DocumentReference docRef = db.Collection("users").Document(email.ToString()).Collection("CarList").Document();
                 docRef.CreateAsync(new { Make = makeEntry.Text, Model = modelEntry.Text, Year = yearEntry.Text, Color = ColorPicker.SelectedItem.ToString()});
 
+                car.Identifier = docRef.Id.ToString();
                 Car.Cars.Add(car);
                 await this.Navigation.PopAsync();
             } 

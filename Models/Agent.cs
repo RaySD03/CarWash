@@ -26,7 +26,6 @@ namespace CarWash.Models
                 });
             }
         }
-
         public Command<Agent> AddCommand
         {
             get

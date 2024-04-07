@@ -14,7 +14,7 @@
     </ContentPage.Resources>
 
     <Grid RowSpacing="0" ColumnSpacing="2" BackgroundColor="Transparent" 
-          RowDefinitions="0.24*,1.5*,0.45*,auto" 
+          RowDefinitions="0.23*,1.5*,0.33*,auto" 
           ColumnDefinitions="*"
           Padding="0">
 
@@ -41,7 +41,7 @@
 
                     <Label Grid.Row="0"
                         Grid.Column="0"
-                        FontSize="24"
+                        FontSize="22"
                         Margin="15,0,0,0"
                         HorizontalOptions="Start"
                         VerticalOptions="Center"
@@ -52,7 +52,7 @@
                     <Button 
                          Grid.Row="0"
                          Grid.Column="1"
-                         FontSize="17"
+                         FontSize="15"
                          Margin="15,0,0,0"
                          HorizontalOptions="End"
                          VerticalOptions="Center"
@@ -71,7 +71,7 @@
                Margin="0,0,0,0"
                VerticalOptions="FillAndExpand">
 
-            <Border Background="#222"
+            <Border Background="#191919"
                 Stroke="#151B24"
                 StrokeShape="RoundRectangle 0,0,0,0"
                 StrokeThickness="1">
@@ -79,7 +79,13 @@
                 <CollectionView x:Name="CarListCollectionView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BorderColor="Transparent" Background="#272727" Margin="5" Padding="12,9,5,9">
+                            <Border Stroke="#333"
+                                 Margin="7,6,7,2"
+                                 StrokeThickness="1"
+                                 StrokeShape="RoundRectangle 10,10,10,10"
+                                 Background="#222"
+                                 Padding="14,12,1,12"
+                                 HorizontalOptions="Center">
                                 <Grid ColumnDefinitions="2*,*">
                                     <HorizontalStackLayout>
                                         <Rectangle Margin="0,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
@@ -95,10 +101,10 @@
                                         </VerticalStackLayout>
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
-                                        <Image HorizontalOptions="End" WidthRequest="90" Source="{Binding Icon}"></Image>
+                                        <Image HorizontalOptions="End" WidthRequest="91" Source="{Binding Icon}"></Image>
                                     </HorizontalStackLayout>
                                 </Grid>
-                            </Frame>
+                            </Border>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -137,8 +143,7 @@
                             VerticalOptions="End"
                             Grid.Row="1"            
                             Padding="5,11,5,11"
-                            MaximumWidthRequest="380"
-                            ContentLayout="left,5"
+                            MaximumWidthRequest="370"
                             Clicked="goToSchedule">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1">

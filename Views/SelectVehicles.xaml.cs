@@ -8,7 +8,7 @@ public partial class SelectVehicles : ContentPage
 	{
         BindingContext = new Car();
 		InitializeComponent();
-        CarList_Selected.Cars.Clear();
+        //CarList_Selected.Cars.Clear();
         CarListCollectionView.ItemsSource = Car.Cars;
 	}
     public void CheckBox_CheckedChanged(object sender, EventArgs e)
@@ -24,7 +24,6 @@ public partial class SelectVehicles : ContentPage
         }
         else
         {
-            //DisplayAlert("Info", "Delete:" + selected.Model + checkbox.ToString(), "OK");
             CarList_Selected.Cars.Remove(CarList_Selected.Cars.Where(i => i.Identifier == selected.Identifier).Single());
         }
     }

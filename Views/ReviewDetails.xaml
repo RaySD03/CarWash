@@ -60,10 +60,25 @@
         </Border>
         
         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,15" Grid.Row="2">
-            <Label FontSize="15" Text="Date and time:" VerticalOptions="Start" ></Label>
-
+            <VerticalStackLayout Padding="5">
+                <VerticalStackLayout>
+                <Label FontSize="16" FontAttributes="Bold" Text="Agent:" VerticalOptions="Start" ></Label>
+                <Label x:Name="AgentLabel" FontSize="15" Text="" VerticalOptions="Start" ></Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout Margin="0,5,0,0">
+                    <Label FontSize="16" FontAttributes="Bold" Text="ID:" VerticalOptions="Start" ></Label>
+                    <Label x:Name="AgentIDLabel" FontSize="15" Text="" VerticalOptions="Start" ></Label>
+                </VerticalStackLayout>
+                <VerticalStackLayout Margin="0,5,0,0">
+                    <Label FontSize="16" FontAttributes="Bold" Text="Date and time:" VerticalOptions="End" Grid.Row="2" ></Label>
+                    <HorizontalStackLayout>
+                        <Label x:Name="DateLabel" FontSize="15" Text="" VerticalOptions="Start" Margin="0,0,8,0"></Label>
+                        <Label x:Name="TimeLabel" FontSize="15" Text="" VerticalOptions="Start" ></Label>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
         </HorizontalStackLayout>
-
+                
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Confirm"
                  FontSize="20"  

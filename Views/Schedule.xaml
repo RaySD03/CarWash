@@ -20,12 +20,13 @@
                 Padding="10"
                 Background="#333">
                 <HorizontalStackLayout Padding="15" HorizontalOptions="Center">
-                    <Image Source="calendar_icon.png"></Image>
-                    <DatePicker TextColor="AliceBlue"
-                            FontSize="28"             
+                    <Image Source="calendar_icon.png" WidthRequest="30"></Image>
+                    <DatePicker x:Name="DatePicker"
+                            TextColor="AliceBlue"
+                            FontSize="22"             
                             HorizontalOptions="Center"
-                            Margin="20,0,0,0"
-                            Background="#333">
+                            Margin="10,0,0,0"
+                            Background="#222">
                     </DatePicker>
                 </HorizontalStackLayout>
             </Border>
@@ -37,13 +38,53 @@
                  Padding="10"
                  Background="#333">
                 <HorizontalStackLayout Padding="15" HorizontalOptions="Center">
-                    <Image Source="clock_icon.png"></Image>
-                    <TimePicker TextColor="AliceBlue"
-                          FontSize="28"
-                          HorizontalOptions="Center"
-                          Margin="20,0,0,0"
-                          Background="#333">
-                    </TimePicker>
+                    <Image Source="clock_icon.png"  WidthRequest="30"></Image>
+                    <Picker x:Name="TimePicker1"
+                      Background="#222"
+                      TextColor="#eee"
+                      Margin="10,0,0,0"
+                      FontSize="20"
+                      SelectedIndexChanged="Handle_Time_Change"
+                      SelectedIndex="1"
+                      TitleColor="AliceBlue">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>8:00</x:String>
+                                <x:String>8:30</x:String>
+                                <x:String>9:00</x:String>
+                                <x:String>9:30</x:String>
+                                <x:String>10:00</x:String>
+                                <x:String>10:30</x:String>
+                                <x:String>11:00</x:String>
+                                <x:String>11:30</x:String>
+                                <x:String>12:00</x:String>
+                                <x:String>12:30</x:String>
+                                <x:String>01:00</x:String>
+                                <x:String>01:30</x:String>
+                                <x:String>02:00</x:String>
+                                <x:String>02:30</x:String>
+                                <x:String>03:00</x:String>
+                                <x:String>03:30</x:String>
+                                <x:String>04:00</x:String>
+                                <x:String>04:30</x:String>
+                                <x:String>05:00</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Picker x:Name="TimePicker2"
+                          Background="#222"
+                          TextColor="#eee"
+                          FontSize="15"
+                          SelectedItem="AM"
+                          SelectedIndex="1"
+                          TitleColor="AliceBlue">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>AM</x:String>
+                                <x:String>PM</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
                 </HorizontalStackLayout>
             </Border>
 
