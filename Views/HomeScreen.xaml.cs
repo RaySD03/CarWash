@@ -19,18 +19,11 @@ public partial class HomeScreen : ContentPage
         //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
         BindingContext = new Car();    
+
     }
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-
-        using var resourceStream = await FileSystem.OpenAppPackageFileAsync("application_default_credentials.json");
-        if (resourceStream is FileStream)
-        {
-            string absolutePath = (resourceStream as FileStream).Name;
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", absolutePath);
-        }
-
         CarListCollectionView.ItemsSource = Car.Cars;
         getCarList();
     }
