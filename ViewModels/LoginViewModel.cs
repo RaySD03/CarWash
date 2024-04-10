@@ -47,9 +47,13 @@ namespace CarWash.ViewModels
                     var content = await auth.GetFreshAuthAsync();
                     var serializedContent = JsonConvert.SerializeObject(content);
                     Preferences.Set("FreshFirebaseToken", serializedContent);
-                    Preferences.Set("UserEmail", credentials.Email);
+                    Preferences.Set("UserEmail", "");
+                   
 
                     Preferences.Set("IsLoggedIn", true);
+                    Preferences.Set("UserEmail", credentials.Email);
+                    Car.Cars.Clear();
+                    Appointment.MyAppointments.Clear();
                     await Shell.Current.GoToAsync("//UserProfile");
                 }             
             }

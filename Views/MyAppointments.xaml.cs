@@ -6,12 +6,15 @@ public partial class MyAppointments : ContentPage
 {
 	public MyAppointments()
 	{    
-        getAppointments();
-
-        InitializeComponent();
-		
-        AppointmentsCollectionView.ItemsSource = Appointment.MyAppointments;
+        InitializeComponent();       
     }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        AppointmentsCollectionView.ItemsSource = Appointment.MyAppointments;
+        getAppointments();
+    }
+
     public async void gotoViewDetails(object sender, EventArgs e)
     {
         var button = (Button)sender;
@@ -22,6 +25,8 @@ public partial class MyAppointments : ContentPage
     }
     public async Task getAppointments()
     {
+        Appointment.MyAppointments.Clear();
+
         try
         {
             var email = Preferences.Get("UserEmail", "");

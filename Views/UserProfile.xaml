@@ -67,6 +67,7 @@
                       ContentLayout="Left, 12"
                       VerticalOptions="Center"
                       Text="Edit"
+                      Clicked="goToAddressForm"
                       BackgroundColor="Transparent"
                       TextColor="Orange"/>
 

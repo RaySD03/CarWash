@@ -26,6 +26,11 @@ public partial class ReviewDetails : ContentPage
            
             docRef.CreateAsync(new { Date = Appointment.MyAppointment.Date, Time = Appointment.MyAppointment.Time, Agent = Appointment.MyAppointment.Agent, AgentID = Appointment.MyAppointment.AgentID });
 
+            foreach (var car in CarList_Services.Cars)
+            {
+                //docRef.CreateAsync(new { Make = car.Make, Model= car.Model, Year = car.Year, Color = car.Color });
+            }
+            
             await DisplayAlert("Note:", "Appointment is scheduled. You can access it from 'my appointments'.", "OK");
             await Navigation.PopToRootAsync();
         } 

@@ -1,4 +1,6 @@
-﻿namespace CarWash
+﻿using CarWash.Views;
+
+namespace CarWash
 {
     public partial class AppShell : Shell
     {
@@ -10,6 +12,7 @@
 
             if (getUserKey == true)
             {
+                AgentHomeScreen.IsVisible = false;
                 MyAppShell.CurrentItem = HomeScreen;
             }
             else

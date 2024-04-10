@@ -17,13 +17,12 @@ public partial class ServicesSelection : ContentPage
 	{
 		await Navigation.PushAsync(new AgentSelection());
 	}
-
     private void Service_Specified(object sender, EventArgs e)
     {
         var option = sender as Picker;    
         var selected = option.BindingContext as CarList_Services;
         selected.Service = option.SelectedItem.ToString();
 
-        DisplayAlert("Info", "Identifier:" + selected.Identifier + "\nMake:" + selected.Make +  "\nModel:" + selected.Model, "OK");
+        //DisplayAlert("Info", "Identifier:" + selected.Identifier + "\nMake:" + selected.Make +  "\nModel:" + selected.Model, "OK");
     }
 }

@@ -18,18 +18,22 @@ public partial class HomeScreen : ContentPage
         //Garage.Cars.Add(new Garage { Identifier = "1", Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
         //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
-        BindingContext = new Car();
-        getCarList();
+        BindingContext = new Car();    
     }
     protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-        string filepath = "C:\\Users\\aniks\\OneDrive\\Desktop\\application_default_credentials.json";
-        Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filepath);
-        CarListCollectionView.ItemsSource = Car.Cars;    
-    }
+        using var resourceStream = await FileSystem.OpenAppPackageFileAsync("application_default_credentials.json");
+        if (resourceStream is FileStream)
+        {
+            string absolutePath = (resourceStream as FileStream).Name;
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", absolutePath);
+        }
 
+        CarListCollectionView.ItemsSource = Car.Cars;
+        getCarList();
+    }
     public async Task getCarList()
 	{
         Car.Cars.Clear();

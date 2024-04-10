@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.MyAddress"
+             Title="My Address"
+             Background="#111">
+
+    <Grid Grid.Row="0"
+           Grid.ColumnSpan="2"
+           Margin="0,0,0,0"
+           VerticalOptions="FillAndExpand">
+
+        <Border Stroke="#151B24"
+                Background="#111"
+                Margin="0,30,0,0"
+                 StrokeShape="RoundRectangle 0,0,0,0"
+                 StrokeThickness="1">
+
+            <Grid ColumnDefinitions="*"
+                    RowDefinitions="*,*,*,*,*,auto" 
+                    RowSpacing="1">
+
+                <HorizontalStackLayout Grid.Row="0" HorizontalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="Street"></Label>
+                        <Entry x:Name="streetEntry"
+                              Placeholder=""
+                              Margin="0,10,0,10"
+                              CharacterSpacing="0.5"
+                              TextColor="#eee"
+                               WidthRequest="250"
+                              ClearButtonVisibility="WhileEditing"
+                              Background="#333"
+                              FontSize="19"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="1" HorizontalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="City"></Label>
+                        <Entry x:Name="cityEntry"
+                                Placeholder=""
+                                Margin="0,10,0,0"
+                                CharacterSpacing="0.5"
+                                WidthRequest="250"
+                                TextColor="#eee"
+                                ClearButtonVisibility="WhileEditing"
+                                Background="#333"
+                                FontSize="19"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="State"></Label>
+                        <Entry x:Name="stateEntry"
+                            Placeholder=""
+                            Margin="0,10,0,10"
+                            CharacterSpacing="0.5"
+                            TextColor="#eee"
+                            WidthRequest="250"
+                            ClearButtonVisibility="WhileEditing"
+                            Background="#333"
+                            FontSize="19"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center">
+                    <VerticalStackLayout>
+                        <Label Text="Zip Code"></Label>
+                        <Entry x:Name="zipcodeEntry"
+                                Placeholder=""
+                                Margin="0,10,0,10"
+                                CharacterSpacing="0.5"
+                                TextColor="#eee"
+                                WidthRequest="250"
+                                ClearButtonVisibility="WhileEditing"
+                                Background="#333"
+                                FontSize="19"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+
+
+                <VerticalStackLayout Grid.Column="0" Grid.Row="4" Margin="5" VerticalOptions="End">
+                    <Button x:Name="addBtn"
+                        Text="Save" 
+                        FontSize="18"
+                        Margin="10"
+                        TextColor="#222"
+                        VerticalOptions="End"
+                        MaximumWidthRequest="370">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#eee"
+                                    Offset="0.1" />
+                                <GradientStop Color="#777"
+                                    Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                </VerticalStackLayout>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>

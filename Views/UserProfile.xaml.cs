@@ -8,11 +8,18 @@ public partial class UserProfile : ContentPage
 	public UserProfile()
 	{
 		InitializeComponent();
-		BindingContext = new UserProfileViewModel();
-		GetProfileInfo();
+		BindingContext = new UserProfileViewModel();	
     }
-
-	private void GetProfileInfo()
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        GetProfileInfo();
+    }
+    public async void goToAddressForm(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MyAddress());
+    }
+    private void GetProfileInfo()
 	{
 		var email = Preferences.Get("UserEmail", "");
 		if (email != null)

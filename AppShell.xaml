@@ -38,7 +38,11 @@
         </Tab>
     </TabBar>
 
-
+    <ShellContent x:Name="AgentHomeScreen"    
+          Title="Home"
+          Icon="home_icon.png"
+          ContentTemplate="{DataTemplate login:AgentHomeScreen}"
+          Route="HomeScreen" />
 
     <FlyoutItem Icon="home_icon.png" Title="Home">
         <ShellContent x:Name="HomeScreen"    

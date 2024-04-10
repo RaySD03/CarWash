@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarWash.Views.AgentHomeScreen"
+             Title="AgentHomeScreen">
+
+    <Grid RowSpacing="0" ColumnSpacing="2" BackgroundColor="Transparent" 
+          RowDefinitions="0.23*,1.5*,0.33*,auto" 
+          ColumnDefinitions="*"
+          Padding="0">
+
+        <Grid Grid.Row="0"
+              Grid.ColumnSpan="2"
+              Margin="0,0,0,0"
+              VerticalOptions="FillAndExpand">
+
+            <Border Stroke="Transparent"
+                    StrokeShape="RoundRectangle 0,0,0,0"
+                    StrokeThickness="1">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#111"
+                                 Offset="0" />
+                        <GradientStop Color="#1a1a1a"
+                                 Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid ColumnDefinitions="*,0.5*"
+                          RowDefinitions="*" 
+                          RowSpacing="3">
+
+                    <Label Grid.Row="0"
+                        Grid.Column="0"
+                        FontSize="22"
+                        Margin="15,0,0,0"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Text="Welcome"
+                        BackgroundColor="Transparent"
+                        TextColor="LightGrey"/>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Margin="0,0,0,0"
+               VerticalOptions="FillAndExpand">
+
+            <Border Background="#191919"
+                Stroke="#151B24"
+                StrokeShape="RoundRectangle 0,0,0,0"
+                StrokeThickness="1">
+
+            </Border>
+
+        </Grid>
+
+        <Grid Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="0,0,0,0"
+                VerticalOptions="Fill">
+
+            <Border Stroke="Transparent"
+                    Background="Transparent"
+                    StrokeThickness="1"
+                    Padding="0">
+
+                <Grid ColumnDefinitions="*"
+                        RowDefinitions="0.3*,*" 
+                        RowSpacing="3">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#303030"
+                                 Offset="0" />
+                            <GradientStop Color="#111"
+                                Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+
+                    <Button Text="Schedule an Appointment"
+                            x:Name="ScheduleBtn"
+                            FontSize="20"
+                            Margin="25,0,25,16" 
+                            Grid.Column="0" 
+                            TextColor="#222"
+                            VerticalOptions="End"
+                            Grid.Row="1"            
+                            Padding="5,11,5,11"
+                            MaximumWidthRequest="370">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#eee"
+                                    Offset="0.1" />
+                                <GradientStop Color="#777"
+                                    Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+    
+</ContentPage>
