@@ -5,106 +5,107 @@
              Title="SignUpPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
-    
+
     <Grid RowDefinitions="auto,*,auto">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
-                <GradientStop Color="#171717"
-            Offset="0.1" />
-                <GradientStop Color="#111"
-            Offset="1.0" />
+                <GradientStop Color="#171717" Offset="0.1" />
+                <GradientStop Color="#111" Offset="1.0" />
             </LinearGradientBrush>
         </Grid.Background>
 
-        <VerticalStackLayout Grid.Row="0">
-            <Label Margin="10,40,10,30" Text="Mobile Car Wash" TextColor="White" FontSize="28" HorizontalOptions="Center"  VerticalOptions="Start"></Label>
+        <VerticalStackLayout Grid.Row="0" Margin="10,40,10,10">
+            <Label Text="Mobile Car Wash" TextColor="White" FontSize="28" HorizontalOptions="Center"/>
         </VerticalStackLayout>
 
         <VerticalStackLayout VerticalOptions="Center" Grid.Row="1">
-
             <VerticalStackLayout>
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
-                <VerticalStackLayout MaximumWidthRequest="350">
-                    <Label HorizontalOptions="Start" 
-                           Text="Email:"
-                           FontSize="17"
-                           TextColor="LightGray"
-                           Margin="15,10,0,0">
-                    </Label>
-                        <Entry Placeholder="example@yahoo.com"
-                           FontSize="21"
-                           MaximumWidthRequest="350"
-                           BackgroundColor="Transparent"
-                           TextColor="White"
-                           Margin="10" 
-                           Text="{Binding MySignUpRequestModel.Email}">
-                        </Entry>
+                <!-- First Name and Last Name in the same row -->
+                <Grid Margin="15,10,15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Column="0" BorderColor="Transparent" Background="#252525" Padding="10,5">
+                        <VerticalStackLayout>
+                            <Label Text="First Name:" FontSize="16" TextColor="LightGray"/>
+                            <Entry Placeholder="Enter your first name" FontSize="18" BackgroundColor="Transparent" TextColor="White" Text="{Binding MySignUpRequestModel.FirstName}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Column="1" BorderColor="Transparent" Background="#252525" Padding="10,5">
+                        <VerticalStackLayout>
+                            <Label Text="Last Name:" FontSize="16" TextColor="LightGray"/>
+                            <Entry Placeholder="Enter your last name" FontSize="18" BackgroundColor="Transparent" TextColor="White" Text="{Binding MySignUpRequestModel.LastName}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- Email -->
+                <Frame BorderColor="Transparent" Background="#252525" Margin="15,0,15,5" Padding="10,5">
+                    <VerticalStackLayout>
+                        <Label Text="Email:" FontSize="16" TextColor="LightGray"/>
+                        <Entry Placeholder="example@yahoo.com" FontSize="18" BackgroundColor="Transparent" TextColor="White" Margin="0" Text="{Binding MySignUpRequestModel.Email}"/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
-                    <VerticalStackLayout MaximumWidthRequest="350">
-                    <Label HorizontalOptions="Start" 
-                        Text="Password:"                      
-                        FontSize="17"
-                        TextColor="LightGray"
-                        Margin="15,10,0,0">
-                    </Label>
-                        <Entry Placeholder="******"
-                        FontSize="22"  
-                        IsPassword="True"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        Margin="10"
-                        Text="{Binding MySignUpRequestModel.Password}">
-                        </Entry>
-                    </VerticalStackLayout>
-                </Frame>
+                <!-- Password and Confirm Password in the same row -->
+                <Grid Margin="15,0,15,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
-                <VerticalStackLayout MaximumWidthRequest="350">
-                    <Label HorizontalOptions="Start" 
-                        Text="Confirm Password:"                      
-                        FontSize="18"
-                        TextColor="LightGray"
-                        Margin="15,10,0,0">
-                    </Label>
-                        <Entry Placeholder="******"
-                        FontSize="22"  
-                        IsPassword="True"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        Margin="10"
-                        Text="{Binding MySignUpRequestModel.ConfirmPassword}">
-                        </Entry>
-                    </VerticalStackLayout>
-                </Frame>
+                    <Frame Grid.Column="0" BorderColor="Transparent" Background="#252525" Padding="10,5">
+                        <VerticalStackLayout>
+                            <Label Text="Password:" FontSize="16" TextColor="LightGray"/>
+                            <Entry Placeholder="******" FontSize="18" IsPassword="True" BackgroundColor="Transparent" TextColor="White" Text="{Binding MySignUpRequestModel.Password}"/>
+                        </VerticalStackLayout>
+                    </Frame>
 
+                    <Frame Grid.Column="1" BorderColor="Transparent" Background="#252525" Padding="10,5">
+                        <VerticalStackLayout>
+                            <Label Text="Confirm Password:" FontSize="16" TextColor="LightGray"/>
+                            <Entry Placeholder="******" FontSize="18" IsPassword="True" BackgroundColor="Transparent" TextColor="White" Text="{Binding MySignUpRequestModel.ConfirmPassword}"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
             </VerticalStackLayout>
-
         </VerticalStackLayout>
 
-        <VerticalStackLayout  Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="0,0,0,25">
-            <Button Text="Continue"
-                 FontSize="21"
-                 VerticalOptions="Center"
-                 MaximumWidthRequest="350"
-                 TextColor="AliceBlue"
-                 Margin="0" 
-                 Command="{Binding SignUpProcedure}">
+        <!-- Layout for Checkboxes and Continue Button -->
+        <VerticalStackLayout Grid.Row="2" VerticalOptions="End" Margin="0,0,0,25">
+            <Grid Margin="15,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- CheckBox for User -->
+                <CheckBox x:Name="userCheckBox" Grid.Column="0" VerticalOptions="Center" IsChecked="{Binding IsUser}" CheckedChanged="OnCheckBoxChanged"/>
+                <Label Grid.Column="1" Text="I am a User" VerticalOptions="Center" TextColor="AliceBlue" FontSize="17"/>
+
+                <!-- CheckBox for Agent -->
+                <CheckBox x:Name="agentCheckBox" Grid.Column="2" VerticalOptions="Center" IsChecked="{Binding IsAgent}" Margin="20,0,0,0" CheckedChanged="OnCheckBoxChanged"/>
+                <!-- Added margin for spacing -->
+                <Label Grid.Column="3" Text="I am an Agent" VerticalOptions="Center" TextColor="AliceBlue" FontSize="17"/>
+
+            </Grid>
+
+            <!-- Continue Button -->
+            <Button Text="Continue" FontSize="21" VerticalOptions="Center" MaximumWidthRequest="350" TextColor="AliceBlue" Margin="15,10,15,5" Command="{Binding SignUpProcedure}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="1,1">
-                        <GradientStop Color="#E08E2F"
-                            Offset="0.1" />
-                        <GradientStop Color="#5A3F1D"
-                            Offset="1.0" />
+                        <GradientStop Color="#E08E2F" Offset="0.1" />
+                        <GradientStop Color="#5A3F1D" Offset="1.0" />
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
         </VerticalStackLayout>
-
     </Grid>
-
-
 </ContentPage>
+
+        

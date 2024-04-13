@@ -33,6 +33,9 @@ namespace CarWash.ViewModels
             SignUpProcedure = new Command(PerformSignUp);
         }
 
+
+
+
         private async void PerformSignUp(object obj)
         {
             // Firebase Authentication here

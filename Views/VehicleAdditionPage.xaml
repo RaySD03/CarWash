@@ -94,7 +94,7 @@
                TextColor="#222"
                MaximumWidthRequest="400"
                IsEnabled="True"
-               Clicked="addCar">
+               Clicked="AddCar">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#eee"
