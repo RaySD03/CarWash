@@ -13,9 +13,10 @@ public partial class HomeScreen : ContentPage
     public HomeScreen()
 	{
         InitializeComponent();
-        //Car.Cars.Add(new Car { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });             
+        Car.Cars.Add(new Car { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
+        
     }
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();    
         getCarList();

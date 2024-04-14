@@ -46,7 +46,7 @@
         </VerticalStackLayout>
 
         <HorizontalStackLayout Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,25,0,0">
-            <Label Text="Specified Cars and Services"></Label>
+            <Label FontSize="15" Text="Cars and Services:"></Label>
         </HorizontalStackLayout>
         
         <Border Background="#222"
@@ -60,23 +60,22 @@
                     <DataTemplate>
                         <Frame BorderColor="Transparent" Background="#333" Margin="10,10,10,10" Padding="15,10,12,10">
                             <Grid ColumnDefinitions="2*,*">
-                                <HorizontalStackLayout>
-                                    <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
-                                        WidthRequest="8"
-                                        HeightRequest="40">
-                                    </Rectangle>
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout>
+                                        <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                            WidthRequest="8"
+                                            HeightRequest="40">
+                                        </Rectangle>
+                                        <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Margin="20,0,0,0">
+                                            <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
+                                            <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
+                                            <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <HorizontalStackLayout Margin="0,100,0,0" HorizontalOptions="Center">
+                                    <Label Background="#555" Padding="10,5,10,5" TextColor="#eee" FontSize="19" Text="{Binding Service}" VerticalOptions="End" Margin="0,0,0,0"></Label>
                                 </HorizontalStackLayout>
-
-                                <HorizontalStackLayout Margin="30,0,0,0">
-                                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
-                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Service}" VerticalOptions="End" Margin="0,10,0,0"></Label>
-                                    </VerticalStackLayout>
-                                </HorizontalStackLayout>
-
-
                             </Grid>
                         </Frame>
                     </DataTemplate>

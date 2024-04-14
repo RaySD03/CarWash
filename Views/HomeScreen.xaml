@@ -80,13 +80,14 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border Stroke="#333"
-                                 Margin="7,6,7,2"
+                                 Margin="7,6,7,2"   
+                                 MinimumWidthRequest="400"
                                  StrokeThickness="1"
                                  StrokeShape="RoundRectangle 10,10,10,10"
                                  Background="#222"
                                  Padding="14,12,1,12"
                                  HorizontalOptions="Center">
-                                <Grid ColumnDefinitions="2*,*">
+                                <Grid ColumnDefinitions="*,*,auto">
                                     <HorizontalStackLayout>
                                         <Rectangle Margin="0,0,0,0" Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
                                              WidthRequest="12"
@@ -100,7 +101,7 @@
                                         <Label TextColor="LightGrey" FontSize="17" Text="{Binding Year}"></Label>
                                         </VerticalStackLayout>
                                     </HorizontalStackLayout>
-                                    <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="1">
+                                    <HorizontalStackLayout VerticalOptions="Center"  HorizontalOptions="End" Grid.Column="2">
                                         <Image HorizontalOptions="End" WidthRequest="91" Source="{Binding Icon}"></Image>
                                     </HorizontalStackLayout>
                                 </Grid>
