@@ -80,15 +80,14 @@
                     </VerticalStackLayout>
                 </HorizontalStackLayout>
 
-
-
                 <VerticalStackLayout Grid.Column="0" Grid.Row="4" Margin="5" VerticalOptions="End">
-                    <Button x:Name="addBtn"
-                        Text="Save" 
+                    <Button x:Name="saveBtn"
+                        Text="Save Address" 
                         FontSize="18"
                         Margin="10"
                         TextColor="#222"
                         VerticalOptions="End"
+                        Clicked="saveAddress"
                         MaximumWidthRequest="370">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0,1">

@@ -10,6 +10,7 @@ using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Firebase.Auth;
 using CarWash.Views;
+using Google.Cloud.Firestore;
 
 namespace CarWash.ViewModels
 {
@@ -44,6 +45,7 @@ namespace CarWash.ViewModels
                 if (credentials != null && credentials.Password == credentials.ConfirmPassword)
                 {
                     var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(credentials.Email, credentials.Password);
+                    await App.Current.MainPage.DisplayAlert("Message","Sign up was successful.\nPlease login with your credentials.", "OK");
                 }
                 else
                 {

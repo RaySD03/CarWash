@@ -1,4 +1,5 @@
 using CarWash.Models;
+using Google.Apis.Util;
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
 using System;
@@ -13,12 +14,11 @@ public partial class HomeScreen : ContentPage
     public HomeScreen()
 	{
         InitializeComponent();
-        Car.Cars.Add(new Car { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
-        
+        //Car.Cars.Add(new Car { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
     }
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        base.OnAppearing();    
+        base.OnAppearing();
         getCarList();
     }
     public async Task getCarList()
@@ -62,7 +62,7 @@ public partial class HomeScreen : ContentPage
                     }
                     // Set identifier of each car which is the docID from the db
                     car.Identifier = doc.Id;
-                    Car.Cars.Add(car);                 
+                    Car.Cars.Add(car);
                 }
             });
         }
@@ -72,14 +72,19 @@ public partial class HomeScreen : ContentPage
         }
     }
 	public async void goToSchedule(object sender, EventArgs e)
-	{
-        if (Car.Cars.Count > 0)
+    {
+        var email = Preferences.Get("UserEmail", "");
+        FirestoreDb db = FirestoreDb.Create("carwash-da88f");
+        DocumentSnapshot retrieved_address = await db.Collection("users").Document(email.ToString()).Collection("Address").Document("info").GetSnapshotAsync();
+
+
+        if (Car.Cars.Count > 0 && retrieved_address.Exists)
         {
             await Navigation.PushAsync(new Schedule());
         }
 		else
         {
-            await DisplayAlert("Error", "Please add at least one car to continue", "OK");
+            await DisplayAlert("Error", "Please add at least one car and specify your address in my profile to continue", "OK");
         }
 	}
     public async void goToManageCars(object sender, EventArgs e)

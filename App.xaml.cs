@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Google.Cloud.Firestore.V1;
+using Google.Cloud.Firestore;
+using Microsoft.Extensions.Configuration;
 
 namespace CarWash
 {
@@ -7,10 +9,25 @@ namespace CarWash
         public App()
         {
             InitializeComponent();
-            loadAssets();
+            initFirestore();
             MainPage = new AppShell();
         }
+        public async Task<FirestoreDb> initFirestore()
+        {
+            try
+            {
+                var stream = await FileSystem.OpenAppPackageFileAsync("application_default_credentials.json");
+                var reader = new StreamReader(stream);
+                var contents = reader.ReadToEnd();
 
+                FirestoreClientBuilder fbc = new FirestoreClientBuilder { JsonCredentials = contents };
+                return FirestoreDb.Create("carwash-da88f", fbc.Build());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async void loadAssets()
         {
             var localPath = Path.Combine(FileSystem.CacheDirectory, "application_default_credentials.json");

@@ -66,19 +66,19 @@ public partial class MyAppointments : ContentPage
                     Appointment.MyAppointments.Add(appointment);
                 }
             });
-
-            if (Appointment.MyAppointments.Count == 0)
-            {
-                NoAppointmentLabel.IsVisible = true;
-            }
-            else
-            {
-                NoAppointmentLabel.IsVisible = false;
-            }
         }
         catch (Exception ex)
         {
 
+
+        }
+        if (Appointment.MyAppointments.Count == 0)
+        {
+            NoAppointmentLabel.IsVisible = true;
+        }
+        else
+        {
+            NoAppointmentLabel.IsVisible = false;
         }
     }
 }

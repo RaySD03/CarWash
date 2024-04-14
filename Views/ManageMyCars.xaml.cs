@@ -10,14 +10,14 @@ public partial class ManageMyCars : ContentPage
 		InitializeComponent();
         BindingContext = new Car();
     }
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
         CarListCollectionView.ItemsSource = Car.Cars;
         getCarList();
     }
 
-    public async void getCarList()
+    public void getCarList()
     {
        
         if (Car.Cars.Count == 0)
