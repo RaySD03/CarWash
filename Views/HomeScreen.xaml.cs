@@ -1,7 +1,6 @@
 using CarWash.Models;
 using Google.Cloud.Firestore;
 using Google.Cloud.Firestore.V1;
-using Microsoft.Maui.ApplicationModel.Communication;
 using System;
 using System.Collections.ObjectModel;
 using System.Formats.Tar;
@@ -14,21 +13,16 @@ public partial class HomeScreen : ContentPage
     public HomeScreen()
 	{
         InitializeComponent();
-        //Garage.Cars.Add(new Garage { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });
-        //Garage.Cars.Add(new Garage { Identifier = "1", Make = "Honda", Model = "Accord", Year = "2018", Color = "White", Icon = "car_list_icon.png" });
-        //Garage.Cars.Add(new Garage { Identifier = "2", Make = "Hyundai", Model = "Elantra", Year = "2022", Color = "Blue", Icon = "car_list_icon.png" });
-        //Garage.Cars.Add(new Garage { Identifier = "3", Make = "Volkswagen", Model = "Golf", Year = "2019", Color = "Silver", Icon = "car_list_icon.png" });
-        BindingContext = new Car();    
-
+        //Car.Cars.Add(new Car { Identifier = "0", Make = "BMW", Model = "Turbo", Year = "2002", Color = "Orange", Icon = "car_list_icon.png" });             
     }
     protected override async void OnAppearing()
     {
-        base.OnAppearing();
-        CarListCollectionView.ItemsSource = Car.Cars;
+        base.OnAppearing();    
         getCarList();
     }
     public async Task getCarList()
 	{
+        CarListCollectionView.ItemsSource = Car.Cars;
         Car.Cars.Clear();
 
         try
@@ -67,7 +61,7 @@ public partial class HomeScreen : ContentPage
                     }
                     // Set identifier of each car which is the docID from the db
                     car.Identifier = doc.Id;
-                    Car.Cars.Add(car);
+                    Car.Cars.Add(car);                 
                 }
             });
         }

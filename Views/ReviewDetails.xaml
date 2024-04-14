@@ -82,7 +82,7 @@
         <VerticalStackLayout Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="5">
             <Button Text="Confirm"
                  FontSize="20"  
-                 Clicked="confirm"
+                 Clicked="confirm_appointment"
                  MaximumWidthRequest="400"
                  TextColor="#222"
                  Margin="10">

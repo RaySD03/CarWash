@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CarWash.Models
 {
-    public class Car
+    public class Car 
     {
         public string Identifier { get; set; }
         public string Make { get; set; }

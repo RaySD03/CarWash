@@ -11,6 +11,7 @@ namespace CarWash.Models
 {
     public class Appointment
     {
+        public string ApptID { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
         public string Agent { get; set; }

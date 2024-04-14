@@ -2,9 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarWash.Views.AppointmentDetails"
+             xmlns:local2="clr-namespace:CarWash.Models"
              Title="Details">
 
-    <Grid RowDefinitions="*,*,*,*">
+    <ContentPage.Resources>
+        <local2:StringToColor x:Key="StringToColor" />
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,*,2*">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="#171717"
@@ -39,6 +44,46 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
         </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Center" Margin="0,25,0,0">
+            <Label Text="Specified Cars and Services"></Label>
+        </HorizontalStackLayout>
+        
+        <Border Background="#222"
+         Stroke="#151B24"
+         VerticalOptions="Center"
+         StrokeShape="RoundRectangle 0,0,0,0"
+         StrokeThickness="1" Grid.Row="2">
+
+            <CollectionView x:Name="CarListCollectionView" ItemsSource="{Binding CarList_Services.Cars}" VerticalOptions="Center" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent" Background="#333" Margin="10,10,10,10" Padding="15,10,12,10">
+                            <Grid ColumnDefinitions="2*,*">
+                                <HorizontalStackLayout>
+                                    <Rectangle Fill="{Binding Color, Converter={StaticResource StringToColor}, ConverterParameter=Default}"
+                                        WidthRequest="8"
+                                        HeightRequest="40">
+                                    </Rectangle>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Margin="30,0,0,0">
+                                    <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0">
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Make}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Model}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Year}"></Label>
+                                        <Label TextColor="LightGrey" FontSize="19" Text="{Binding Service}" VerticalOptions="End" Margin="0,10,0,0"></Label>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+
 
     </Grid>
     

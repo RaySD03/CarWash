@@ -14,14 +14,12 @@ public partial class MyAppointments : ContentPage
         AppointmentsCollectionView.ItemsSource = Appointment.MyAppointments;
         getAppointments();
     }
-
     public async void gotoViewDetails(object sender, EventArgs e)
     {
         var button = (Button)sender;
         var appointment = button.BindingContext as Appointment;
 
-        await Navigation.PushAsync(new AppointmentDetails(appointment.Agent, appointment.AgentID, appointment.Date, appointment.Time));
-
+        await Navigation.PushAsync(new AppointmentDetails(appointment.ApptID, appointment.Agent, appointment.AgentID, appointment.Date, appointment.Time));
     }
     public async Task getAppointments()
     {
@@ -38,11 +36,15 @@ public partial class MyAppointments : ContentPage
             {
                 foreach (DocumentSnapshot doc in await docRef.ConfigureAwait(false))
                 {
-                    var appointment = new Appointment { AgentID = "", Agent = "", Date = "", Time = "" };
+                    var appointment = new Appointment { ApptID ="", AgentID = "", Agent = "", Date = "", Time = "" };
                     DocumentSnapshot retrieved_appointment = await db.Collection("users").Document(email.ToString()).Collection("Appointments").Document(doc.Id).GetSnapshotAsync();
 
                     foreach (KeyValuePair<string, object> pair in retrieved_appointment.ToDictionary())
                     {
+                        if (pair.Key == "ApptID")
+                        {
+                            appointment.ApptID = (string)pair.Value;
+                        }
                         if (pair.Key == "AgentID")
                         {
                             appointment.AgentID = (string)pair.Value;
