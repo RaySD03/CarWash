@@ -6,7 +6,7 @@
              Background="#111">
 
     <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="Transparent" 
-           RowDefinitions="0.8*,*,*" 
+           RowDefinitions="2*,*,*" 
            ColumnDefinitions="*,*"
            Padding="0">
 
@@ -28,15 +28,28 @@
                 </Border.Background>
 
                 <Grid ColumnDefinitions="*"
-                        RowDefinitions="*,*" 
+                        RowDefinitions="auto,auto,auto" 
                         RowSpacing="3">
 
+                    <Button 
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontSize="18"
+                        ImageSource="user_profile_default.png"
+                        Margin="10,20,0,0"
+                        HorizontalOptions="Start"
+                        ContentLayout="Left, 12"
+                        VerticalOptions="Center"
+                        Text="Name"
+                        BackgroundColor="Transparent"
+                        TextColor="White"/>
+
                     <Button x:Name="Email"
-                           Grid.Row="0"
+                           Grid.Row="1"
                            Grid.Column="1"
                            FontSize="18"
                            ImageSource="email_icon.png"
-                           Margin="10,0,0,0"
+                           Margin="10,20,0,0"
                            HorizontalOptions="Start"
                            ContentLayout="Left, 12"
                            VerticalOptions="Center"
@@ -45,11 +58,11 @@
                            TextColor="White"/>
 
                     <Button 
-                          Grid.Row="1"
+                          Grid.Row="2"
                           Grid.Column="1"
                           FontSize="18"
-                          ImageSource="user_profile_default.png"
-                          Margin="10,0,0,40"
+                          ImageSource="address_icon.png"
+                          Margin="10,20,0,0"
                           HorizontalOptions="Start"
                           ContentLayout="Left, 12"
                           VerticalOptions="Center"
@@ -58,11 +71,10 @@
                           TextColor="White"/>
 
                     <Button 
-                      Grid.Row="1"
+                      Grid.Row="2"
                       Grid.Column="1"
                       FontSize="18"
-  
-                      Margin="10,0,0,40"
+                      Margin="10,20,0,0"
                       HorizontalOptions="End"
                       ContentLayout="Left, 12"
                       VerticalOptions="Center"

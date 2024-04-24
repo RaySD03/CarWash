@@ -135,14 +135,16 @@
                         </LinearGradientBrush>
                     </Grid.Background>
 
-                    <Button Text="Schedule an Appointment"
+                    <Button Text="Schedule"
                             x:Name="ScheduleBtn"
-                            FontSize="20"
+                            FontSize="17"
                             Margin="25,0,25,16" 
                             Grid.Column="0" 
                             TextColor="#222"
                             VerticalOptions="End"
-                            Grid.Row="1"            
+                            Grid.Row="1" 
+                            ContentLayout="Left, 5"
+                            ImageSource="schedule.png"
                             Padding="5,11,5,11"
                             MaximumWidthRequest="370"
                             Clicked="goToSchedule">

@@ -13,6 +13,14 @@ public partial class MyAppointments : ContentPage
         base.OnAppearing();
         AppointmentsCollectionView.ItemsSource = Appointment.MyAppointments;
         getAppointments();
+        if (Appointment.MyAppointments.Count == 0)
+        {
+            NoAppointmentLabel.IsVisible = true;
+        }
+        else
+        {
+            NoAppointmentLabel.IsVisible = false;
+        }
     }
     public async void gotoViewDetails(object sender, EventArgs e)
     {
@@ -72,13 +80,6 @@ public partial class MyAppointments : ContentPage
 
 
         }
-        if (Appointment.MyAppointments.Count == 0)
-        {
-            NoAppointmentLabel.IsVisible = true;
-        }
-        else
-        {
-            NoAppointmentLabel.IsVisible = false;
-        }
+
     }
 }

@@ -8,7 +8,7 @@ public partial class SelectVehicles : ContentPage
 	{
         BindingContext = new Car();
 		InitializeComponent();
-        //CarList_Selected.Cars.Clear();
+        CarList_Services.Cars.Clear();
         CarListCollectionView.ItemsSource = Car.Cars;
 	}
     public void CheckBox_CheckedChanged(object sender, EventArgs e)
@@ -17,7 +17,7 @@ public partial class SelectVehicles : ContentPage
         var selected = checkbox.BindingContext as Car;
         var car = new CarList_Services { Identifier = selected.Identifier, Make = selected.Make, Model = selected.Model, Color = selected.Color, Year = selected.Year, Service = "TBD" };
 
-        // Add or remove checked cars from the collectionview to services list
+        // Add or remove checked cars from the collectionview for the services list
         if (checkbox.IsChecked == true)
         {        
             CarList_Services.Cars.Add(car);

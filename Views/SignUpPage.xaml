@@ -17,22 +17,41 @@
         </Grid.Background>
 
         <VerticalStackLayout Grid.Row="0">
-            <Label Margin="10,40,10,30" Text="Mobile Car Wash" TextColor="White" FontSize="28" HorizontalOptions="Center"  VerticalOptions="Start"></Label>
+            <Label Margin="10,30,10,0" Text="Mobile Car Wash" TextColor="White" FontSize="25" HorizontalOptions="Center"  VerticalOptions="Start"></Label>
         </VerticalStackLayout>
 
         <VerticalStackLayout VerticalOptions="Center" Grid.Row="1">
 
             <VerticalStackLayout>
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                <Frame BorderColor="Transparent" Background="Transparent" Margin="15,0,15,0" Padding="0,0,0,0">
+                    <VerticalStackLayout MaximumWidthRequest="350">
+                        <Label HorizontalOptions="Start" 
+                            Text="Full name:"
+                            FontSize="16"
+                            TextColor="LightGray"
+                            Margin="15,10,0,0">
+                        </Label>
+                        <Entry Placeholder="Your name"
+                            FontSize="18"
+                            MaximumWidthRequest="340"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            Margin="10" 
+                            Text="{Binding MySignUpRequestModel.Name}">
+                        </Entry>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame BorderColor="Transparent" Background="Transparent" Margin="15,8,15,0" Padding="0,0,0,0">
                 <VerticalStackLayout MaximumWidthRequest="350">
                     <Label HorizontalOptions="Start" 
                            Text="Email:"
-                           FontSize="17"
+                           FontSize="16"
                            TextColor="LightGray"
                            Margin="15,10,0,0">
                     </Label>
                         <Entry Placeholder="example@yahoo.com"
-                           FontSize="21"
+                           FontSize="18"
                            MaximumWidthRequest="350"
                            BackgroundColor="Transparent"
                            TextColor="White"
@@ -42,16 +61,16 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                <Frame BorderColor="Transparent" Background="Transparent" Margin="15,8,15,0" Padding="0,0,0,0">
                     <VerticalStackLayout MaximumWidthRequest="350">
                     <Label HorizontalOptions="Start" 
                         Text="Password:"                      
-                        FontSize="17"
+                        FontSize="16"
                         TextColor="LightGray"
                         Margin="15,10,0,0">
                     </Label>
                         <Entry Placeholder="******"
-                        FontSize="22"  
+                        FontSize="18"  
                         IsPassword="True"
                         BackgroundColor="Transparent"
                         TextColor="White"
@@ -61,16 +80,16 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,5" Padding="0,0,0,0">
+                <Frame BorderColor="Transparent" Background="Transparent" Margin="15,8,15,0" Padding="0,0,0,0">
                 <VerticalStackLayout MaximumWidthRequest="350">
                     <Label HorizontalOptions="Start" 
                         Text="Confirm Password:"                      
-                        FontSize="18"
+                        FontSize="16"
                         TextColor="LightGray"
                         Margin="15,10,0,0">
                     </Label>
                         <Entry Placeholder="******"
-                        FontSize="22"  
+                        FontSize="18"  
                         IsPassword="True"
                         BackgroundColor="Transparent"
                         TextColor="White"

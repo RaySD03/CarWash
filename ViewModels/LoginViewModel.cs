@@ -15,7 +15,6 @@ namespace CarWash.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-
         public string webApiKey = "AIzaSyAaQodvzegxflBMymuDyGo4fZ67SXiDZ_4";
 
         private LoginRequestModel myLoginRequestModel = new LoginRequestModel();
@@ -32,7 +31,6 @@ namespace CarWash.ViewModels
         {
             LoginProcedure = new Command(PerformLogin);
         }
-
         private async void PerformLogin(object obj)
         {
             // Firebase Authentication here
@@ -47,8 +45,7 @@ namespace CarWash.ViewModels
                     var content = await auth.GetFreshAuthAsync();
                     var serializedContent = JsonConvert.SerializeObject(content);
                     Preferences.Set("FreshFirebaseToken", serializedContent);
-                    Preferences.Set("UserEmail", "");
-                   
+                    Preferences.Set("UserEmail", "");    
 
                     Preferences.Set("IsLoggedIn", true);
                     Preferences.Set("UserEmail", credentials.Email);

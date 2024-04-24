@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\address_icon.svg" />
 	  <None Remove="Resources\Images\agent_icon.svg" />
 	  <None Remove="Resources\Images\appointments_icon.svg" />
 	  <None Remove="Resources\Images\calendar_icon.svg" />
@@ -78,6 +79,7 @@
 	  <None Remove="Resources\Images\user_login_icon.svg" />
 	  <None Remove="Resources\Images\user_profile_default.svg" />
 	  <None Remove="Resources\Images\user_signup_icon.svg" />
+	  <None Remove="Resources\Images\view_icon.svg" />
 	  <None Remove="Resources\Raw\application_default_credentials.json" />
 	</ItemGroup>
 

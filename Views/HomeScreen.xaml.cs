@@ -78,7 +78,7 @@ public partial class HomeScreen : ContentPage
         DocumentSnapshot retrieved_address = await db.Collection("users").Document(email.ToString()).Collection("Address").Document("info").GetSnapshotAsync();
 
 
-        if (Car.Cars.Count > 0 && retrieved_address.Exists)
+        if (Car.Cars.Count > 0) //&& retrieved_address.Exists)
         {
             await Navigation.PushAsync(new Schedule());
         }
