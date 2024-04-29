@@ -41,6 +41,7 @@
     <ShellContent x:Name="AgentHomeScreen"    
           Title="Home"
           Icon="home_icon.png"
+          IsVisible="False"
           ContentTemplate="{DataTemplate login:AgentHomeScreen}"
           Route="HomeScreen" />
 

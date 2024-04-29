@@ -9,19 +9,20 @@ namespace CarWash
         public App()
         {
             InitializeComponent();
-            initFirestore();
+            //initFirestore();
             MainPage = new AppShell();
         }
         public async Task<FirestoreDb> initFirestore()
         {
             try
-            {
+            {  
                 var stream = await FileSystem.OpenAppPackageFileAsync("application_default_credentials.json");
                 var reader = new StreamReader(stream);
                 var contents = reader.ReadToEnd();
 
                 FirestoreClientBuilder fbc = new FirestoreClientBuilder { JsonCredentials = contents };
                 return FirestoreDb.Create("carwash-da88f", fbc.Build());
+                
             }
             catch (Exception)
             {

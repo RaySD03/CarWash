@@ -45,6 +45,12 @@ namespace CarWash.ViewModels
                 if (credentials != null && credentials.Password == credentials.ConfirmPassword)
                 {
                     var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(credentials.Email, credentials.Password);
+
+                    // Add user's fullname
+                    FirestoreDb db = FirestoreDb.Create("carwash-da88f");
+                    var user = db.Collection("users").Document(credentials.Email.ToString());
+                    await user.CreateAsync(new { Fullname = credentials.Name.ToString()});
+
                     await App.Current.MainPage.DisplayAlert("Message","Sign up was successful.\nPlease login with your credentials.", "OK");
                 }
                 else

@@ -6,7 +6,7 @@
              Shell.NavBarIsVisible="False"
              Title="LoginPage">
 
-    <Grid RowDefinitions="*,*,*">
+    <Grid RowDefinitions="*,auto,*">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop Color="#171717"
@@ -39,31 +39,29 @@
                            Margin="10" 
                            Text="{Binding MyLoginRequestModel.Email}">
                         </Entry>
-
                     </VerticalStackLayout>
                 </Frame>
 
                 <Frame BorderColor="Transparent" Background="#252525" Margin="15,10,15,0" Padding="0,0,0,0">
-                <VerticalStackLayout MaximumWidthRequest="350">
-                    <Label HorizontalOptions="Start" 
-                        Text="Password:"                      
-                        FontSize="18"
-                        TextColor="LightGray"
-                        Margin="15,5,0,0">
-                    </Label>
+                    <VerticalStackLayout MaximumWidthRequest="350">
+                        <Label HorizontalOptions="Start" 
+                            Text="Password:"                      
+                            FontSize="18"
+                            TextColor="LightGray"
+                            Margin="15,5,0,0">
+                        </Label>
                         <Entry Placeholder="******"
-                        FontSize="22"  
-                        IsPassword="True"
-                        BackgroundColor="Transparent"
-                        TextColor="White"
-                        Margin="10"
-                        Text="{Binding MyLoginRequestModel.Password}">
+                            FontSize="22"  
+                            IsPassword="True"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            Margin="10"
+                            Text="{Binding MyLoginRequestModel.Password}">
                         </Entry>
                     </VerticalStackLayout>
                 </Frame>
-
+                <Button Margin="16" FontSize="18" VerticalOptions="Start" Text="Forgot Password" Background="Transparent" TextColor="Wheat" Command="{Binding PasswordReset}"></Button>
             </VerticalStackLayout>
-
         </VerticalStackLayout>
 
         <VerticalStackLayout  Grid.Column="0" Grid.Row="2" VerticalOptions="End" Margin="0,0,0,25">
