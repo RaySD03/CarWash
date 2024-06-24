@@ -7,10 +7,8 @@ Add service account credentials json file:
 - Project details
 
 Home screen:
-
 <img src="https://github.com/RaySD03/CarWash/assets/113494325/e899f891-9987-4032-bd1b-efa4123ae026" width="500" height="515">
 
-
+<br>
 List of scheduled appointments:
-
 <img src="https://github.com/RaySD03/CarWash/assets/113494325/cdb10699-4f06-4d98-89e3-59d7ae4ac851" width="500" height="515">
