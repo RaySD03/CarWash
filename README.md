@@ -15,3 +15,9 @@ Home screen:
 List of scheduled appointments:
 
 <img src="https://github.com/RaySD03/CarWash/assets/113494325/cdb10699-4f06-4d98-89e3-59d7ae4ac851" width="500" height="515">
+
+
+<br /><br />
+User profile:
+
+<img src="https://github.com/RaySD03/CarWash/assets/113494325/29012483-7d74-43e3-a0e6-f5f295466a6f" width="500" height="515">
