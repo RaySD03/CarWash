@@ -8,4 +8,4 @@ Add service account credentials json file:
 
 Home screen:
 
-![Screenshot (807)](https://github.com/RaySD03/CarWash/assets/113494325/e899f891-9987-4032-bd1b-efa4123ae026)
+<img src="[https://your-image-url.type](https://github.com/RaySD03/CarWash/assets/113494325/e899f891-9987-4032-bd1b-efa4123ae026)" width="200" height="150">
