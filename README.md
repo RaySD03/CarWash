@@ -1,10 +1,10 @@
--Project requirements
+- Project requirements
 
 Add service account credentials json file:
     Since user authentication is handled by Google Firebasebase, the app relies on a service account credentials json file.
     Relevent information about generating the json file can be found here [Google Firebase](https://firebase.google.com/docs/cloud-messaging/auth-server#:~:text=To%20authenticate%20a%20service%20account,confirm%20by%20clicking%20Generate%20Key).
 
--Project details
+- Project details
 
 Home screen:
 
@@ -27,3 +27,9 @@ User profile:
 Appointment details:
 
 <img src="https://github.com/RaySD03/CarWash/assets/113494325/a9b94601-6be2-4169-8e7d-1da1a6f43604" width="500" height="515">
+
+
+<br /><br />
+Agent selection:
+
+<img src="https://github.com/RaySD03/CarWash/assets/113494325/ba488ddd-0253-4967-b49a-1bd586c921f7" width="500" height="515">
