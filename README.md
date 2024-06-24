@@ -7,4 +7,5 @@ Add service account credentials json file:
 - Project details
 
 Home screen:
-[https://github.com/RaySD03/CarWash/assets/113494325/890d7ed6-2d4a-4c28-84bf-ad2189ba02a7]
+
+![Screenshot (807)](https://github.com/RaySD03/CarWash/assets/113494325/e899f891-9987-4032-bd1b-efa4123ae026)
